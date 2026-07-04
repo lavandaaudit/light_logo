@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kyiv Light Logo — Гірлянди з вашим логотипом</title>
+<meta name="description" content="Новорічні гірлянди з вашим логотипом. Будь-яка форма, будь-який логотип. Виробимо за 3 дні.">
+<link rel="icon" href="hero-garland.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#000;color:#fff;line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;font-family:inherit}
+img{max-width:100%;display:block}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#111}
+::-webkit-scrollbar-thumb{background:#333;border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:#555}
+
+/* Header */
+.header{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(12px);background:rgba(0,0,0,0.8);border-bottom:1px solid rgba(255,255,255,0.1)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:700;color:#fff}
+.logo svg{color:#FFD700}
+.nav{display:flex;align-items:center;gap:24px;font-size:14px;color:#ccc}
+.nav a:hover{color:#FFD700}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:#FFD700;color:#000;font-weight:600;padding:10px 20px;border-radius:9999px;font-size:14px;transition:background .2s}
+.nav-cta:hover{background:#ffcc00}
+.burger{display:none;color:#fff;background:none;font-size:24px;padding:8px}
+.mobile-menu{display:none;position:absolute;top:64px;left:0;right:0;background:rgba(0,0,0,0.95);border-top:1px solid rgba(255,255,255,0.1);padding:24px;flex-direction:column;gap:16px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:#ccc;font-size:16px;padding:8px 0}
+.mobile-menu a:hover{color:#FFD700}
+
+/* Hero */
+.hero{padding-top:128px;padding-bottom:80px;position:relative;overflow:hidden}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(255,215,0,0.08) 0%,transparent 60%);pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:64px;position:relative;z-index:1}
+.hero-text{flex:1;text-align:center}
+.hero-label{color:#FFD700;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:3px;margin-bottom:16px}
+.hero h1{font-size:clamp(2rem,5vw,3.75rem);font-weight:800;line-height:1.15;margin-bottom:24px}
+.hero h1 span{color:#FFD700}
+.hero p{color:#999;font-size:clamp(1rem,2vw,1.25rem);max-width:560px;margin:0 auto 32px;line-height:1.7}
+.hero-btns{display:flex;flex-direction:column;align-items:center;gap:16px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:#FFD700;color:#000;font-weight:700;padding:16px 32px;border-radius:9999px;font-size:16px;transition:all .2s;box-shadow:0 4px 24px rgba(255,215,0,0.2)}
+.btn-primary:hover{background:#ffcc00;transform:scale(1.03)}
+.btn-video{display:inline-flex;align-items:center;gap:12px;color:#ccc;background:none;font-size:16px;transition:color .2s}
+.btn-video:hover{color:#fff}
+.btn-video-circle{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;transition:border-color .2s}
+.btn-video:hover .btn-video-circle{border-color:rgba(255,215,0,0.5)}
+.btn-video-circle svg{color:#FFD700;margin-left:2px}
+.hero-img-wrap{flex:1;position:relative;max-width:480px}
+.hero-img-glow{position:absolute;inset:-20px;border-radius:50%;background:radial-gradient(circle,rgba(255,215,0,0.3),transparent);filter:blur(40px);pointer-events:none}
+.hero-img-wrap img{position:relative;border-radius:16px;width:100%;object-fit:cover;max-height:420px;box-shadow:0 8px 40px rgba(0,0,0,0.5)}
+
+/* Features Bar */
+.features-bar{border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.02)}
+.features-inner{max-width:1200px;margin:0 auto;padding:24px;display:grid;grid-template-columns:repeat(5,1fr);gap:16px;text-align:center}
+.feature-item{display:flex;flex-direction:column;align-items:center;gap:8px;color:#ccc}
+.feature-item svg{color:#FFD700}
+.feature-item span{font-size:clamp(11px,1.5vw,14px);font-weight:500}
+
+/* Constructor + Calculator */
+.construct-calc{padding:80px 0}
+.cc-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.section-title{font-size:clamp(1.5rem,3vw,1.875rem);font-weight:700;margin-bottom:8px}
+.section-title .num{color:#FFD700}
+.cc-step-title{color:#fff;font-weight:600;display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.cc-step-num{width:28px;height:28px;border-radius:50%;background:#FFD700;color:#000;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
+.card{border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;background:rgba(255,255,255,0.03);margin-bottom:24px}
+
+/* Upload */
+.upload-zone{border:2px dashed rgba(255,255,255,0.2);border-radius:12px;padding:32px;text-align:center;cursor:pointer;transition:border-color .2s}
+.upload-zone:hover,.upload-zone.dragover{border-color:rgba(255,215,0,0.5)}
+.upload-zone svg{margin:0 auto 12px;color:#666}
+.upload-zone p{color:#999;font-size:14px}
+.upload-zone .small{color:#666;font-size:12px;margin-top:8px}
+.file-previews{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.file-preview{position:relative;width:80px;height:80px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,0.1)}
+.file-preview img{width:100%;height:100%;object-fit:cover}
+.file-preview .remove{position:absolute;top:4px;right:4px;width:20px;height:20px;border-radius:50%;background:rgba(239,68,68,0.8);color:#fff;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;font-size:12px;line-height:1;border:none;cursor:pointer}
+.file-preview:hover .remove{opacity:1}
+.light-previews{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.light-circle{width:64px;height:64px;border-radius:50%;border:2px dashed rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;color:#666;font-size:12px;overflow:hidden}
+.light-circle img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+
+/* Settings */
+.setting-label{color:#ccc;font-size:14px;font-weight:500;margin-bottom:12px;display:block}
+.btn-group{display:flex;flex-wrap:wrap;gap:8px}
+.btn-opt{padding:8px 16px;border-radius:8px;font-size:14px;font-weight:500;transition:all .15s;background:rgba(255,255,255,0.1);color:#ccc}
+.btn-opt:hover{background:rgba(255,255,255,0.2)}
+.btn-opt.active{background:#FFD700;color:#000}
+.setting-block{margin-bottom:24px}
+.checkbox-row{display:flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:12px}
+.checkbox-row input[type=checkbox]{width:18px;height:18px;accent-color:#FFD700;cursor:pointer}
+.checkbox-row span{color:#ccc;font-size:14px}
+.placeholder-circles{display:flex;gap:12px}
+.placeholder-circle{width:64px;height:64px;border-radius:50%;border:2px dashed rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;color:#666;font-size:12px}
+
+/* Calculator */
+.calc-sticky{position:sticky;top:88px}
+.calc-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.calc-val{color:#FFD700;font-weight:700;font-size:18px}
+.slider-wrap{margin-bottom:24px}
+.slider-input{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:3px;background:rgba(255,255,255,0.15);outline:none}
+.slider-input::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#FFD700;cursor:pointer;border:2px solid #FFD700;box-shadow:0 0 8px rgba(255,215,0,0.3)}
+.slider-input::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#FFD700;cursor:pointer;border:2px solid #FFD700}
+.slider-labels{display:flex;justify-content:space-between;font-size:12px;color:#666;margin-top:4px}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px solid rgba(255,255,255,0.1)}
+.info-row .label{color:#999;font-size:14px}
+.info-row .value{color:#fff;font-weight:600}
+.price-breakdown{border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;margin-top:8px}
+.price-row{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px}
+.price-row .pl{color:#999}
+.price-row .pv{color:#fff}
+.total-row{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid rgba(255,215,0,0.3);margin-top:8px}
+.total-row .tl{color:#fff;font-weight:700;font-size:16px}
+.total-row .tv{color:#FFD700;font-weight:800;font-size:24px}
+.btn-order{width:100%;background:#FFD700;color:#000;font-weight:700;padding:16px;border-radius:9999px;font-size:16px;margin-top:16px;transition:all .2s;box-shadow:0 4px 24px rgba(255,215,0,0.2);display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-order:hover{background:#ffcc00;transform:scale(1.02)}
+.order-note{text-align:center;color:#666;font-size:12px;margin-top:12px}
+
+/* Benefits */
+.benefits{padding:64px 0;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.02)}
+.benefits-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.benefit-card{border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;background:rgba(0,0,0,0.5);text-align:center;transition:border-color .2s}
+.benefit-card:hover{border-color:rgba(255,215,0,0.3)}
+.benefit-card .icon{display:flex;justify-content:center;margin-bottom:16px}
+.benefit-card .icon svg{color:#FFD700}
+.benefit-card h3{color:#fff;font-weight:600;margin-bottom:8px;font-size:15px}
+.benefit-card p{color:#999;font-size:14px}
+
+/* Target */
+.target{padding:80px 0}
+.target-inner{max-width:1200px;margin:0 auto;padding:0 24px}
+.target h2{text-align:center;font-size:clamp(1.5rem,3vw,1.875rem);font-weight:700;margin-bottom:48px}
+.target-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+.target-card{border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;background:rgba(255,255,255,0.03);text-align:center;transition:all .2s;cursor:pointer}
+.target-card:hover{border-color:rgba(255,215,0,0.3)}
+.target-card:hover .t-icon{transform:scale(1.1)}
+.t-icon{display:flex;justify-content:center;margin-bottom:12px;transition:transform .2s}
+.t-icon svg{color:#FFD700}
+.target-card p{color:#ccc;font-size:14px;font-weight:500}
+
+/* Examples */
+.examples{padding:80px 0;border-top:1px solid rgba(255,255,255,0.1)}
+.examples-inner{max-width:1200px;margin:0 auto;padding:0 24px}
+.examples-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px}
+.examples h2{font-size:clamp(1.5rem,3vw,1.875rem);font-weight:700}
+.examples-link{color:#FFD700;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px}
+.examples-link:hover{text-decoration:underline}
+.examples-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.example-card{position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);transition:transform .3s}
+.example-card:hover{transform:scale(1.02)}
+.example-card img{width:100%;height:256px;object-fit:cover;transition:transform .5s}
+.example-card:hover img{transform:scale(1.05)}
+.example-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);padding:16px}
+.example-overlay h3{color:#fff;font-weight:600;font-size:15px}
+.example-overlay p{color:#999;font-size:13px}
+
+/* FAQ */
+.faq{padding:80px 0;border-top:1px solid rgba(255,255,255,0.1)}
+.faq-inner{max-width:720px;margin:0 auto;padding:0 24px}
+.faq h2{text-align:center;font-size:clamp(1.5rem,3vw,1.875rem);font-weight:700;margin-bottom:48px}
+.faq-item{border:1px solid rgba(255,255,255,0.1);border-radius:12px;background:rgba(255,255,255,0.03);margin-bottom:12px;overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:rgba(255,215,0,0.3)}
+.faq-q{padding:20px 24px;color:#fff;font-weight:600;font-size:15px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:none;width:100%;text-align:left}
+.faq-q:hover{color:#FFD700}
+.faq-q svg{transition:transform .2s;flex-shrink:0;margin-left:12px}
+.faq-item.open .faq-q svg{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a-inner{padding:0 24px 20px;color:#999;font-size:14px;line-height:1.7}
+
+/* CTA */
+.cta{padding:80px 0;border-top:1px solid rgba(255,255,255,0.1);position:relative;overflow:hidden}
+.cta-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(255,215,0,0.06) 0%,transparent 70%);pointer-events:none}
+.cta-inner{max-width:720px;margin:0 auto;padding:0 24px;text-align:center;position:relative;z-index:1}
+.cta h2{font-size:clamp(1.5rem,4vw,2.5rem);font-weight:800;margin-bottom:16px}
+.cta p{color:#999;font-size:18px;margin-bottom:32px;max-width:560px;margin-left:auto;margin-right:auto}
+
+/* Footer */
+.footer{border-top:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.02);padding:48px 0;margin-top:auto}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.footer-logo{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:700;color:#fff;margin-bottom:16px}
+.footer-logo svg{color:#FFD700}
+.footer .copy{color:#666;font-size:14px}
+.footer .love{color:#555;font-size:13px;margin-top:4px}
+.footer a{display:flex;align-items:center;gap:12px;color:#999;font-size:14px;padding:6px 0;transition:color .2s}
+.footer a:hover{color:#FFD700}
+.footer a svg{flex-shrink:0}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,0.8);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:16px}
+.modal-overlay.open{display:flex}
+.modal{width:100%;max-width:440px;background:#111;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:32px;position:relative;max-height:90vh;overflow-y:auto}
+.modal-close{position:absolute;top:16px;right:16px;color:#999;background:none;font-size:20px}
+.modal-close:hover{color:#fff}
+.modal h3{font-size:20px;font-weight:700;color:#fff;margin-bottom:4px}
+.modal .modal-price{color:#FFD700;font-weight:700;font-size:18px;margin-bottom:24px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;color:#999;font-size:14px;margin-bottom:4px}
+.form-input{width:100%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:12px 16px;color:#fff;font-size:14px;outline:none;transition:border-color .2s;font-family:inherit}
+.form-input:focus{border-color:rgba(255,215,0,0.5)}
+.form-input::placeholder{color:#666}
+textarea.form-input{resize:none;min-height:80px}
+.order-summary{background:rgba(255,255,255,0.05);border-radius:12px;padding:16px;margin-bottom:16px}
+.os-row{display:flex;justify-content:space-between;font-size:13px;color:#999;margin-bottom:6px}
+.os-row .osv{color:#fff}
+.os-row .green{color:#4ade80}
+.btn-submit{width:100%;background:#FFD700;color:#000;font-weight:700;padding:16px;border-radius:9999px;font-size:16px;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px}
+.btn-submit:hover{background:#ffcc00}
+.btn-submit:disabled{opacity:0.5;cursor:not-allowed}
+.spinner{width:16px;height:16px;border:2px solid rgba(0,0,0,0.2);border-top-color:#000;border-radius:50%;animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Responsive */
+@media(max-width:1024px){
+  .cc-inner{grid-template-columns:1fr}
+  .calc-sticky{position:static}
+  .hero-inner{flex-direction:column;text-align:center}
+  .hero-text{text-align:center}
+  .hero-btns{justify-content:center}
+  .hero-img-wrap{max-width:400px}
+  .benefits-inner{grid-template-columns:repeat(2,1fr)}
+  .target-grid{grid-template-columns:repeat(3,1fr)}
+  .examples-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-inner{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav{display:none}
+  .nav-cta-wrap{display:none}
+  .burger{display:block}
+  .features-inner{grid-template-columns:repeat(2,1fr)}
+  .target-grid{grid-template-columns:repeat(2,1fr)}
+  .examples-grid{grid-template-columns:1fr}
+  .examples-link{display:none}
+}
+@media(max-width:480px){
+  .features-inner{grid-template-columns:repeat(2,1fr);gap:12px}
+  .benefits-inner{grid-template-columns:1fr}
+  .target-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+      Kyiv Light Logo
+    </div>
+    <nav class="nav">
+      <a href="#about">Про нас</a>
+      <a href="#constructor">Конструктор</a>
+      <a href="#examples">Кейси</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+    <div class="nav-cta-wrap">
+      <a href="#constructor" class="nav-cta">Розрахувати гірлянду <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    </div>
+    <button class="burger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Меню">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMobile()">Про нас</a>
+    <a href="#constructor" onclick="closeMobile()">Конструктор</a>
+    <a href="#examples" onclick="closeMobile()">Кейси</a>
+    <a href="#faq" onclick="closeMobile()">FAQ</a>
+    <a href="#contacts" onclick="closeMobile()">Контакти</a>
+    <a href="#constructor" class="nav-cta" style="text-align:center" onclick="closeMobile()">Розрахувати гірлянду</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="hero-label">Новорічна гірлянда з вашим логотипом</p>
+      <h1>ЗРОБИМО ГІРЛЯНДИ З ВАШИМ <span>ЛОГОТИПОМ</span></h1>
+      <p>Будь-яка форма. Будь-який логотип. Виріжуємо, гравіруємо та збираємо за 3 дні до Нового року.</p>
+      <div class="hero-btns">
+        <a href="#constructor" class="btn-primary">Створити свою гірлянду <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <button class="btn-video">
+          <span class="btn-video-circle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,3 20,12 6,21"/></svg></span>
+          Дивитись відео
+        </button>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="hero-img-glow"></div>
+      <img src="garland-product-1.png" alt="Гірлянда з логотипами">
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES BAR -->
+<section class="features-bar">
+  <div class="features-inner">
+    <div class="feature-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg><span>Будь-яка форма</span></div>
+    <div class="feature-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg><span>PNG, SVG, AI, PDF</span></div>
+    <div class="feature-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span>Виробимо за 3 дні</span></div>
+    <div class="feature-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg><span>Преміум акрил 3-5 мм</span></div>
+    <div class="feature-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg><span>Доставка по всій Україні</span></div>
+  </div>
+</section>
+
+<!-- CONSTRUCTOR + CALCULATOR -->
+<section class="construct-calc" id="constructor">
+  <div class="cc-inner">
+    <!-- Constructor -->
+    <div>
+      <h2 class="section-title"><span class="num">1.</span> КОНСТРУКТОР ГІРЛЯНДИ</h2>
+
+      <!-- Step 1 -->
+      <div class="card" id="dropZone">
+        <h3 class="cc-step-title"><span class="cc-step-num">1</span> Завантажте ваш логотип або зображення</h3>
+        <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <p>Перетягніть файл сюди або оберіть на комп'ютері</p>
+          <p class="small">Підтримуються формати: PNG, SVG, AI, PDF</p>
+        </div>
+        <input type="file" id="fileInput" accept=".png,.svg,.ai,.pdf" multiple hidden>
+        <div class="file-previews" id="filePreviews"></div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="card">
+        <h3 class="cc-step-title"><span class="cc-step-num">2</span> Додайте підсвітку до гірлянди</h3>
+        <p style="color:#666;font-size:14px">Перетягніть, щоб змінити порядок. Натисніть, щоб видалити.</p>
+        <div class="light-previews" id="lightPreviews">
+          <div class="placeholder-circles" id="placeholderCircles">
+            <div class="placeholder-circle">+1</div>
+            <div class="placeholder-circle">+2</div>
+            <div class="placeholder-circle">+3</div>
+            <div class="placeholder-circle">+4</div>
+            <div class="placeholder-circle">+5</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="card">
+        <h3 class="cc-step-title"><span class="cc-step-num">3</span> Налаштуйте параметри підсвітки</h3>
+
+        <div class="setting-block">
+          <span class="setting-label">Розмір підсвітки</span>
+          <div class="btn-group" id="sizeGroup">
+            <button class="btn-opt" data-val="40 мм">40 мм</button>
+            <button class="btn-opt active" data-val="60 мм">60 мм</button>
+            <button class="btn-opt" data-val="80 мм">80 мм</button>
+            <button class="btn-opt" data-val="100 мм">100 мм</button>
+          </div>
+        </div>
+
+        <div class="setting-block">
+          <span class="setting-label">Колір світла</span>
+          <div class="btn-group" id="colorGroup">
+            <button class="btn-opt active" data-val="Теплий білий">Теплий білий</button>
+            <button class="btn-opt" data-val="Холодний білий">Холодний білий</button>
+            <button class="btn-opt" data-val="Жовтий">Жовтий</button>
+            <button class="btn-opt" data-val="Синій">Синій</button>
+            <button class="btn-opt" data-val="RGB (на вибір)">RGB (на вибір)</button>
+          </div>
+        </div>
+
+        <div>
+          <span class="setting-label">Додаткові опції</span>
+          <label class="checkbox-row"><input type="checkbox" id="chkEngraving" checked><span>Гравірування (3 дні строк)</span></label>
+          <label class="checkbox-row"><input type="checkbox" id="chkPackaging"><span>Індивідуальна упаковка</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calculator -->
+    <div>
+      <h2 class="section-title" style="margin-bottom:24px"><span class="num">2.</span> КАЛЬКУЛЯТОР</h2>
+      <div class="card calc-sticky">
+        <div class="slider-wrap">
+          <div class="calc-header"><span class="setting-label" style="margin:0">Кількість підсвіток</span><span class="calc-val" id="countVal">100</span></div>
+          <input type="range" class="slider-input" id="countSlider" min="10" max="500" value="100">
+          <div class="slider-labels"><span>10</span><span>500</span></div>
+        </div>
+
+        <div class="setting-block">
+          <span class="setting-label">Відстань між підсвітками</span>
+          <div class="btn-group" id="distGroup">
+            <button class="btn-opt active" data-val="10">10 см</button>
+            <button class="btn-opt" data-val="15">15 см</button>
+            <button class="btn-opt" data-val="20">20 см</button>
+            <button class="btn-opt" data-val="25">25 см</button>
+            <button class="btn-opt" data-val="30">30 см</button>
+          </div>
+        </div>
+
+        <div class="info-row"><span class="label">Загальна довжина гірлянди</span><span class="value" id="totalLength">9.9 м</span></div>
+
+        <div class="setting-block" style="margin-bottom:16px">
+          <span class="setting-label">Тип підключення</span>
+          <div class="btn-group" id="connGroup">
+            <button class="btn-opt active" data-val="USB">USB</button>
+            <button class="btn-opt" data-val="220V">220V</button>
+          </div>
+        </div>
+
+        <div class="info-row"><span class="label">Термін виробництва</span><span class="value">3-5 робочих днів</span></div>
+
+        <div class="price-breakdown">
+          <h4 style="color:#fff;font-size:14px;font-weight:600;margin-bottom:12px">Розрахунок вартості</h4>
+          <div class="price-row"><span class="pl" id="prLine">100 шт × 60 мм</span><span class="pv" id="prSubtotal">18 000 грн</span></div>
+          <div class="price-row"><span class="pl" id="prLightLine">Підсвітка (теплий білий)</span><span class="pv" id="prLight">1 500 грн</span></div>
+          <div class="price-row" id="prExtrasRow" style="display:none"><span class="pl">Додаткові опції</span><span class="pv" id="prExtras">500 грн</span></div>
+          <div class="price-row"><span class="pl">Доставка</span><span class="pv" style="color:#4ade80">Безкоштовно</span></div>
+          <div class="total-row"><span class="tl">Разом:</span><span class="tv" id="totalPrice">19 800 грн</span></div>
+        </div>
+
+        <button class="btn-order" onclick="openModal()">Замовити гірлянду <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        <p class="order-note">Без передоплати. Оплата при отриманні.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="benefits-inner">
+    <div class="benefit-card">
+      <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div>
+      <h3>Прозорий акрил</h3>
+      <p>Преміум акрил 3-5 мм з ідеальною прозорістю</p>
+    </div>
+    <div class="benefit-card">
+      <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <h3>Яскраве світло</h3>
+      <p>LED-підсвітка, яка не нагрівається</p>
+    </div>
+    <div class="benefit-card">
+      <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></div>
+      <h3>Міцні матеріали</h3>
+      <p>Не бояться вологи, морозу та сонця</p>
+    </div>
+    <div class="benefit-card">
+      <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+      <h3>Безпечне використання</h3>
+      <p>Низька напруга, економне споживання</p>
+    </div>
+  </div>
+</section>
+
+<!-- TARGET AUDIENCE -->
+<section class="target">
+  <div class="target-inner">
+    <h2>ДЛЯ КОГО?</h2>
+    <div class="target-grid">
+      <div class="target-card"><div class="t-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><p>Корпоративні подарунки</p></div>
+      <div class="target-card"><div class="t-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="m16 15 3-3-3-3"/></svg></div><p>Офіс та компанії</p></div>
+      <div class="target-card"><div class="t-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg></div><p>Кав'ярні та ресторани</p></div>
+      <div class="target-card"><div class="t-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 2 3.451 6.906L16 10l-5.549 3.094L7 20l-1-4.906L2 14l4.549-1.094Z"/><path d="m14.5 12.5 2.065 4.13L21 18l-4.435 2.87L15.5 25l-.935-4.87L11 18l3.565-.37Z"/></svg></div><p>Магазини та бутики</p></div>
+      <div class="target-card"><div class="t-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div><p>Івенти та фотозони</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXAMPLES -->
+<section class="examples" id="examples">
+  <div class="examples-inner">
+    <div class="examples-header">
+      <h2>ПРИКЛАДИ РОБІТ</h2>
+      <a href="#constructor" class="examples-link">Дивитись всі кейси <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    </div>
+    <div class="examples-grid">
+      <div class="example-card"><img src="garland-product-1.png" alt="Приклад роботи 1"><div class="example-overlay"><h3>Київ Незламний</h3><p>Корпоративна гірлянда</p></div></div>
+      <div class="example-card"><img src="garland-product-2.png" alt="Приклад роботи 2"><div class="example-overlay"><h3>Київводоканал</h3><p>Новорічна колекція</p></div></div>
+      <div class="example-card"><img src="hero-garland.png" alt="Приклад роботи 3"><div class="example-overlay"><h3>З Різдвом Київ</h3><p>Патріотична серія</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <h2>FAQ</h2>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Які матеріали використовуються для підсвітки?<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Ми використовуємо преміум акрил товщиною 3-5 мм з ідеальною прозорістю. LED-підсвітка не нагрівається, безпечна для використання протягом тривалого часу. Всі матеріали відповідають стандартам якості та безпечні для дітей.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Чи можна замовити індивідуальну форму?<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Так! Ми приймаємо логотипи у форматах PNG, SVG, AI та PDF. Будь-яка форма — кругла, квадратна, у вигляді логотипу чи символу. Наші інженери адаптують ваш дизайн для лазерної гравірування.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Який мінімальний розмір замовлення?<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Мінімальне замовлення — від 10 підсвіток. Ми рекомендуємо замовляти від 50 штук для оптимального вигляду гірлянди. Для корпоративних замовлень діють спеціальні ціни.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Скільки часу займає виробництво?<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Стандартний термін виробництва — 3-5 робочих днів. У сезон (листопад-грудень) рекомендуємо замовляти заздалегідь. Експрес-виробництво за 1-2 дні можливе за додаткову плату.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Яка доставка по Україні?<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Доставка безкоштовна по всій Україні через Nova Poshta або Justin. Термін доставки 1-3 дні. Можливий самовивіз з нашого офісу у Києві.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Чи є гарантія на продукцію?<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Так, ми надаємо гарантію 12 місяців на всі LED-підсвітки. У разі несправності протягом гарантійного терміну ми безкоштовно замінимо дефектні елементи.</div></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <h2>ГОТОВІ СТВОРИТИ СВОЮ ГІРЛЯНДУ?</h2>
+    <p>Створіть унікальну новорічну гірлянду з вашим логотипом за 3 хвилини!</p>
+    <a href="#constructor" class="btn-primary">Почати конструювання <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contacts">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+        Kyiv Light Logo
+      </div>
+      <p class="copy">&copy; 2024 Kyiv Light Logo. Усі права захищені.</p>
+      <p class="love">Створено з любов&apos;ю до свята</p>
+    </div>
+    <div>
+      <a href="tel:+380931234567"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +38 093 123 45 67</a>
+      <a href="mailto:2294598@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> 2294598@gmail.com</a>
+    </div>
+    <div>
+      <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> @kyiv.light.logo</a>
+      <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg> t.me/kyivlightlogo</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <h3>Оформлення замовлення</h3>
+    <div class="modal-price" id="modalPrice">19 800 грн</div>
+    <form id="orderForm" action="https://formsubmit.co/2294598@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Нове замовлення гірлянди — Kyiv Light Logo">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="box">
+      <input type="hidden" name="Параметри" id="formParams">
+      <div class="form-group"><label>Ім'я *</label><input class="form-input" name="Ім'я" required placeholder="Ваше ім'я"></div>
+      <div class="form-group"><label>Телефон</label><input class="form-input" name="Телефон" placeholder="+38 0XX XXX XX XX"></div>
+      <div class="form-group"><label>Email</label><input class="form-input" name="Email" type="email" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Коментар</label><textarea class="form-input" name="Коментар" placeholder="Додаткові побажання..."></textarea></div>
+      <div class="order-summary" id="orderSummary"></div>
+      <button type="submit" class="btn-submit" id="submitBtn">Відправити запит <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+    </form>
+  </div>
+</div>
+
+<script>
+// ─── State ───
+let lightCount = 100;
+let lightSize = '60 мм';
+let lightColor = 'Теплий білий';
+let distance = 10;
+let connectionType = 'USB';
+let engraving = true;
+let packaging = false;
+const uploadedFiles = [];
+
+const SIZE_PRICES = { '40 мм': 140, '60 мм': 180, '80 мм': 220, '100 мм': 260 };
+const COLOR_PRICES = { 'Теплий білий': 0, 'Холодний білий': 0, 'Жовтий': 0, 'Синій': 0, 'RGB (на вибір)': 15 };
+const LIGHT_PRICE = 15;
+const ENGRAVING_PRICE = 300;
+const PACKAGING_PRICE = 200;
+
+// ─── Helpers ───
+function fmt(n) { return n.toLocaleString('uk-UA') + ' грн'; }
+
+function calc() {
+  const subtotal = lightCount * SIZE_PRICES[lightSize];
+  const lightCost = lightCount * LIGHT_PRICE + lightCount * COLOR_PRICES[lightColor];
+  const extras = (engraving ? ENGRAVING_PRICE : 0) + (packaging ? PACKAGING_PRICE : 0);
+  const total = subtotal + lightCost + extras;
+  const length = ((lightCount - 1) * distance) / 100;
+
+  document.getElementById('countVal').textContent = lightCount;
+  document.getElementById('totalLength').textContent = length.toFixed(1) + ' м';
+  document.getElementById('prLine').textContent = lightCount + ' шт × ' + lightSize;
+  document.getElementById('prSubtotal').textContent = fmt(subtotal);
+  document.getElementById('prLightLine').textContent = 'Підсвітка (' + lightColor.toLowerCase() + ')';
+  document.getElementById('prLight').textContent = fmt(lightCount * LIGHT_PRICE + lightCount * COLOR_PRICES[lightColor]);
+
+  const extrasRow = document.getElementById('prExtrasRow');
+  if (extras > 0) { extrasRow.style.display = 'flex'; document.getElementById('prExtras').textContent = fmt(extras); }
+  else { extrasRow.style.display = 'none'; }
+
+  document.getElementById('totalPrice').textContent = fmt(total);
+  document.getElementById('modalPrice').textContent = fmt(total);
+}
+
+// ─── Button groups ───
+function setupGroup(id, callback) {
+  document.querySelectorAll('#' + id + ' .btn-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#' + id + ' .btn-opt').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      callback(btn.dataset.val);
+      calc();
+    });
+  });
+}
+
+setupGroup('sizeGroup', v => lightSize = v);
+setupGroup('colorGroup', v => lightColor = v);
+setupGroup('distGroup', v => distance = parseInt(v));
+setupGroup('connGroup', v => connectionType = v);
+
+// ─── Slider ───
+document.getElementById('countSlider').addEventListener('input', e => {
+  lightCount = parseInt(e.target.value);
+  calc();
+});
+
+// ─── Checkboxes ───
+document.getElementById('chkEngraving').addEventListener('change', e => { engraving = e.target.checked; calc(); });
+document.getElementById('chkPackaging').addEventListener('change', e => { packaging = e.target.checked; calc(); });
+
+// ─── File upload ───
+const fileInput = document.getElementById('fileInput');
+const dropZone = document.getElementById('dropZone');
+
+fileInput.addEventListener('change', e => addFiles(e.target.files));
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.querySelector('.upload-zone').classList.add('dragover'); });
+dropZone.addEventListener('dragleave', () => dropZone.querySelector('.upload-zone').classList.remove('dragover'));
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.querySelector('.upload-zone').classList.remove('dragover'); addFiles(e.dataTransfer.files); });
+
+function addFiles(files) {
+  Array.from(files).forEach(f => {
+    if (!f.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      uploadedFiles.push({ name: f.name, src: e.target.result });
+      renderFiles();
+    };
+    reader.readAsDataURL(f);
+  });
+  fileInput.value = '';
+}
+
+function renderFiles() {
+  const c = document.getElementById('filePreviews');
+  const l = document.getElementById('lightPreviews');
+  c.innerHTML = '';
+  l.innerHTML = '';
+  uploadedFiles.forEach((f, i) => {
+    c.innerHTML += '<div class="file-preview"><img src="' + f.src + '" alt=""><button class="remove" onclick="removeFile(' + i + ')">×</button></div>';
+    l.innerHTML += '<div class="light-circle"><img src="' + f.src + '" alt=""></div>';
+  });
+  if (!uploadedFiles.length) {
+    l.innerHTML = '<div class="placeholder-circles"><div class="placeholder-circle">+1</div><div class="placeholder-circle">+2</div><div class="placeholder-circle">+3</div><div class="placeholder-circle">+4</div><div class="placeholder-circle">+5</div></div>';
+  }
+}
+
+function removeFile(i) {
+  uploadedFiles.splice(i, 1);
+  renderFiles();
+}
+
+// ─── FAQ ───
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const answer = item.querySelector('.faq-a');
+  const isOpen = item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-item').forEach(fi => {
+    fi.classList.remove('open');
+    fi.querySelector('.faq-a').style.maxHeight = null;
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+
+// ─── Modal ───
+function openModal() {
+  const subtotal = lightCount * SIZE_PRICES[lightSize];
+  const lightCost = lightCount * LIGHT_PRICE + lightCount * COLOR_PRICES[lightColor];
+  const extras = (engraving ? ENGRAVING_PRICE : 0) + (packaging ? PACKAGING_PRICE : 0);
+  const total = subtotal + lightCost + extras;
+  const length = ((lightCount - 1) * distance) / 100;
+
+  const params = lightCount + ' шт × ' + lightSize + ' | Колір: ' + lightColor + ' | Відстань: ' + distance + ' см | Підключення: ' + connectionType + ' | Довжина: ' + length.toFixed(1) + ' м' + (engraving ? ' | Гравірування: так' : '') + (packaging ? ' | Упаковка: так' : '') + ' | Разом: ' + fmt(total);
+  document.getElementById('formParams').value = params;
+
+  let summary = '';
+  summary += '<div class="os-row"><span>Підсвітки</span><span class="osv">' + lightCount + ' шт × ' + lightSize + '</span></div>';
+  summary += '<div class="os-row"><span>Колір</span><span class="osv">' + lightColor + '</span></div>';
+  summary += '<div class="os-row"><span>Відстань</span><span class="osv">' + distance + ' см</span></div>';
+  summary += '<div class="os-row"><span>Підключення</span><span class="osv">' + connectionType + '</span></div>';
+  summary += '<div class="os-row"><span>Довжина</span><span class="osv">' + length.toFixed(1) + ' м</span></div>';
+  if (engraving) summary += '<div class="os-row"><span>Гравірування</span><span class="osv green">Так</span></div>';
+  if (packaging) summary += '<div class="os-row"><span>Упаковка</span><span class="osv green">Так</span></div>';
+  document.getElementById('orderSummary').innerHTML = summary;
+
+  document.getElementById('orderModal').classList.add('open');
+}
+
+function closeModal() { document.getElementById('orderModal').classList.remove('open'); }
+document.getElementById('orderModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+
+// ─── Mobile menu ───
+function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+// ─── Init ───
+calc();
+</script>
+</body>
+</html>
