@@ -3,557 +3,563 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kyiv Light Logo — Гірлянди з вашим логотипом</title>
-<meta name="description" content="Новорічні гірлянди з вашим логотипом. Будь-яка форма, будь-який логотип. Виробимо за 3 дні.">
-<link rel="icon" href="hero-garland.png">
+<title>Kyiv Light Logo — Комплекти підвісок з вашим логотипом</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-button{cursor:pointer;border:none;font-family:inherit}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#000;color:#fff;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-::-webkit-scrollbar{width:8px}
-::-webkit-scrollbar-track{background:#111}
-::-webkit-scrollbar-thumb{background:#333;border-radius:4px}
-::-webkit-scrollbar-thumb:hover{background:#555}
 
-/* ── HEADER ── */
-.header{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(12px);background:rgba(10,10,10,0.85);border-bottom:1px solid rgba(255,255,255,0.08)}
-.header-inner{max-width:1280px;margin:0 auto;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:700;color:#fff;letter-spacing:0.5px}
-.logo svg{color:#FFD700;flex-shrink:0}
-.nav{display:flex;align-items:center;gap:28px;font-size:14px;color:rgba(255,255,255,0.7)}
-.nav a{transition:color .2s}
+/* HEADER */
+.header{position:sticky;top:0;z-index:100;background:rgba(0,0,0,.95);backdrop-filter:blur(10px);border-bottom:1px solid #1a1a1a}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px;gap:16px}
+.logo{font-size:20px;font-weight:700;color:#FFD700;letter-spacing:1px;white-space:nowrap}
+.nav{display:flex;gap:24px;align-items:center}
+.nav a{color:#ccc;font-size:14px;transition:color .2s;white-space:nowrap}
 .nav a:hover{color:#FFD700}
-.nav-cta{display:inline-flex;align-items:center;gap:6px;background:#FFD700;color:#000;font-weight:600;padding:10px 22px;border-radius:9999px;font-size:13px;transition:background .2s;white-space:nowrap}
-.nav-cta:hover{background:#e6c200}
-.burger{display:none;color:#fff;background:none;font-size:24px;padding:8px}
-.mobile-menu{display:none;position:absolute;top:64px;left:0;right:0;background:rgba(10,10,10,0.97);border-top:1px solid rgba(255,255,255,0.08);padding:24px 40px;flex-direction:column;gap:18px}
-.mobile-menu.open{display:flex}
-.mobile-menu a{color:rgba(255,255,255,0.7);font-size:16px}
-.mobile-menu a:hover{color:#FFD700}
+.btn-order{background:#FFD700;color:#000;font-weight:600;font-size:14px;padding:8px 20px;border:none;border-radius:4px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:opacity .2s}
+.btn-order:hover{opacity:.85}
+.btn-order svg{width:14px;height:14px}
+.menu-btn{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:4px}
 
-/* ── HERO ── */
-.hero{padding-top:140px;padding-bottom:80px;position:relative;overflow:hidden}
-.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 65% 40%,rgba(255,215,0,0.07) 0%,transparent 60%);pointer-events:none}
-.hero-inner{max-width:1280px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:48px;position:relative;z-index:1}
-.hero-text{flex:1}
-.hero-label{color:#FFD700;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:3px;margin-bottom:20px}
-.hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:20px;letter-spacing:-0.5px}
-.hero h1 span{color:#FFD700}
-.hero p{color:rgba(255,255,255,0.6);font-size:18px;max-width:520px;margin-bottom:36px;line-height:1.7}
-.hero-btns{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;background:#FFD700;color:#000;font-weight:700;padding:16px 36px;border-radius:9999px;font-size:16px;transition:all .2s;box-shadow:0 0 30px rgba(255,215,0,0.15)}
-.btn-primary:hover{background:#e6c200;transform:translateY(-1px);box-shadow:0 0 40px rgba(255,215,0,0.25)}
-.btn-video{display:inline-flex;align-items:center;gap:12px;color:rgba(255,255,255,0.7);background:none;font-size:15px;transition:color .2s}
-.btn-video:hover{color:#fff}
-.btn-video-circle{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;transition:all .2s}
-.btn-video:hover .btn-video-circle{border-color:rgba(255,215,0,0.4)}
-.btn-video-circle svg{color:#FFD700;margin-left:2px}
-.hero-img-wrap{flex:1;max-width:520px;position:relative}
-.hero-img-glow{position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,rgba(255,215,0,0.2),transparent 70%);filter:blur(30px);pointer-events:none}
-.hero-img-wrap img{position:relative;border-radius:20px;width:100%;object-fit:cover;max-height:440px;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+/* HERO */
+.hero{max-width:1200px;margin:0 auto;padding:50px 24px 30px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hero-label{font-size:11px;text-transform:uppercase;letter-spacing:3px;color:#FFD700;margin-bottom:12px}
+.hero h1{font-size:40px;font-weight:800;line-height:1.15;margin-bottom:14px}
+.hero-sub{color:#999;font-size:14px;line-height:1.7;margin-bottom:20px}
+.hero-price{font-size:28px;font-weight:700;color:#FFD700;margin-bottom:24px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:#FFD700;color:#000;font-weight:600;font-size:14px;padding:11px 24px;border:none;border-radius:6px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:opacity .2s}
+.btn-primary:hover{opacity:.85}
+.btn-primary svg{width:16px;height:16px}
+.hero-img{border-radius:10px;overflow:hidden}
+.hero-img img{width:100%;height:auto;display:block}
 
-/* ── FEATURES BAR ── */
-.features-bar{border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.015)}
-.features-inner{max-width:1280px;margin:0 auto;padding:28px 40px;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;text-align:center}
-.feature-item{display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(255,255,255,0.65)}
-.feature-item svg{color:#FFD700;flex-shrink:0}
-.feature-item span{font-size:13px;font-weight:500;line-height:1.4}
+/* FEATURES */
+.features{max-width:1200px;margin:0 auto;padding:10px 24px 30px}
+.features-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.feature-card{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:8px;padding:16px 12px;text-align:center}
+.feature-icon{color:#FFD700;margin-bottom:8px}
+.feature-card p{font-size:11px;color:#aaa;line-height:1.5}
 
-/* ── CONSTRUCTOR + CALCULATOR ── */
-.cc-section{padding:80px 0 100px}
-.cc-inner{max-width:1280px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-.section-title{font-size:28px;font-weight:700;margin-bottom:32px;letter-spacing:-0.3px}
-.section-title .num{color:#FFD700}
-.cc-step-title{color:#fff;font-weight:600;font-size:15px;display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.cc-step-num{width:28px;height:28px;border-radius:50%;background:#FFD700;color:#000;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
-.card{border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px;background:rgba(255,255,255,0.025);margin-bottom:20px}
-.card:hover{border-color:rgba(255,255,255,0.12)}
+/* CONSTRUCTOR + CALCULATOR */
+.main-section{max-width:1200px;margin:0 auto;padding:10px 24px 50px}
+.main-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:20px}
 
-/* Upload */
-.upload-zone{border:2px dashed rgba(255,255,255,0.15);border-radius:12px;padding:36px 24px;text-align:center;cursor:pointer;transition:all .2s}
-.upload-zone:hover,.upload-zone.dragover{border-color:rgba(255,215,0,0.4);background:rgba(255,215,0,0.02)}
-.upload-zone svg{margin:0 auto 12px;color:#555}
-.upload-zone p{color:rgba(255,255,255,0.5);font-size:14px}
-.upload-zone .small{color:rgba(255,255,255,0.3);font-size:12px;margin-top:8px}
-.file-previews{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
-.file-preview{position:relative;width:72px;height:72px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.1)}
-.file-preview img{width:100%;height:100%;object-fit:cover}
-.file-preview .rm{position:absolute;top:2px;right:2px;width:20px;height:20px;border-radius:50%;background:rgba(220,38,38,0.85);color:#fff;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;font-size:11px;line-height:1;border:none;cursor:pointer}
-.file-preview:hover .rm{opacity:1}
-.light-previews{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-.light-circle{width:56px;height:56px;border-radius:50%;border:2px solid rgba(255,215,0,0.25);display:flex;align-items:center;justify-content:center;overflow:hidden;background:rgba(255,215,0,0.03)}
-.light-circle img{width:44px;height:44px;border-radius:50%;object-fit:cover}
-.ph-circles{display:flex;gap:10px}
-.ph-circle{width:56px;height:56px;border-radius:50%;border:2px dashed rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.2);font-size:11px}
+/* Constructor */
+.constructor,.calculator{background:#0a0a0a;border:2px solid #FFD700;border-radius:10px;padding:24px}
+.section-title{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:#FFD700;margin-bottom:16px;font-weight:600}
+.step-title{font-size:13px;font-weight:600;color:#fff;margin-bottom:8px;margin-top:14px}
+.step-title:first-of-type{margin-top:0}
 
-/* Settings */
-.setting-label{color:rgba(255,255,255,0.7);font-size:13px;font-weight:500;margin-bottom:10px;display:block}
-.btn-group{display:flex;flex-wrap:wrap;gap:8px}
-.btn-opt{padding:8px 16px;border-radius:8px;font-size:13px;font-weight:500;transition:all .15s;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.08)}
-.btn-opt:hover{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8)}
-.btn-opt.active{background:#FFD700;color:#000;border-color:#FFD700;font-weight:600}
-.setting-block{margin-bottom:20px}
-.chk-row{display:flex;align-items:center;gap:10px;cursor:pointer;margin-bottom:10px}
-.chk-row input[type=checkbox]{width:16px;height:16px;accent-color:#FFD700;cursor:pointer}
-.chk-row span{color:rgba(255,255,255,0.6);font-size:13px}
-.step-hint{color:rgba(255,255,255,0.3);font-size:13px}
+/* Upload — compact */
+.upload-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.upload-box{position:relative;background:#141414;border:1px dashed #333;border-radius:6px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;transition:border-color .2s}
+.upload-box:hover{border-color:#FFD700}
+.upload-box.has-image{border-style:solid;border-color:#FFD700}
+.upload-box input{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:2}
+.upload-box .plus{font-size:20px;color:#444;font-weight:300}
+.upload-box .label{font-size:9px;color:#555;margin-top:2px}
+.upload-box img{position:absolute;inset:2px;width:calc(100% - 4px);height:calc(100% - 4px);object-fit:contain}
+.upload-box .remove-img{position:absolute;top:2px;right:2px;background:rgba(255,0,0,.8);color:#fff;border:none;border-radius:50%;width:16px;height:16px;font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:3;line-height:1}
 
-/* ── CALCULATOR ── */
-.calc-wrap{position:sticky;top:88px}
-.slider-wrap{margin-bottom:24px}
-.calc-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.calc-val{color:#FFD700;font-weight:700;font-size:20px}
-input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:3px;background:rgba(255,255,255,0.1);outline:none;cursor:pointer}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#FFD700;cursor:pointer;border:3px solid #0a0a0a;box-shadow:0 0 10px rgba(255,215,0,0.3)}
-input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#FFD700;cursor:pointer;border:3px solid #0a0a0a}
-.slider-labels{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,0.25);margin-top:4px}
-.info-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,0.06)}
-.info-row .lbl{color:rgba(255,255,255,0.5);font-size:14px}
-.info-row .val{color:#fff;font-weight:600;font-size:14px}
-.price-section{border-top:1px solid rgba(255,255,255,0.06);padding-top:16px;margin-top:8px}
-.price-section h4{color:rgba(255,255,255,0.5);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
-.price-row{display:flex;justify-content:space-between;font-size:14px;margin-bottom:10px}
-.price-row .pl{color:rgba(255,255,255,0.45)}
-.price-row .pv{color:rgba(255,255,255,0.85)}
-.total-row{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid rgba(255,215,0,0.2);margin-top:12px}
-.total-row .tl{color:#fff;font-weight:700;font-size:16px}
-.total-row .tv{color:#FFD700;font-weight:800;font-size:26px}
-.btn-order{width:100%;background:#FFD700;color:#000;font-weight:700;padding:16px;border-radius:9999px;font-size:16px;margin-top:20px;transition:all .2s;box-shadow:0 0 30px rgba(255,215,0,0.15);display:flex;align-items:center;justify-content:center;gap:8px}
-.btn-order:hover{background:#e6c200;transform:translateY(-1px);box-shadow:0 0 40px rgba(255,215,0,0.25)}
-.order-note{text-align:center;color:rgba(255,255,255,0.3);font-size:12px;margin-top:12px}
+/* Garland Preview — REAL PHOTO + LOGO OVERLAY */
+.garland-preview{margin-top:12px;position:relative;border-radius:10px;overflow:hidden;background:#000}
+.garland-preview img.bg-photo{width:100%;height:auto;display:block}
+.garland-overlay{position:absolute;inset:0}
+.logo-slot{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all .3s;background:rgba(0,0,0,.15)}
+.logo-slot img{width:82%;height:82%;object-fit:contain;filter:brightness(1.15) contrast(1.1) sepia(.15) saturate(1.3);opacity:.92;mix-blend-mode:screen}
+.logo-slot .empty-label{color:rgba(255,215,0,.2);font-size:9px;font-weight:600;text-align:center;pointer-events:none}
+.garland-note{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-size:10px;color:rgba(255,255,255,.25);z-index:5}
 
-/* ── BENEFITS ── */
-.benefits{padding:64px 0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
-.benefits-inner{max-width:1280px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.benefit-card{border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:28px 20px;background:rgba(255,255,255,0.02);text-align:center;transition:all .3s}
-.benefit-card:hover{border-color:rgba(255,215,0,0.15);background:rgba(255,255,255,0.035)}
-.benefit-card .ic{display:flex;justify-content:center;margin-bottom:16px}
-.benefit-card .ic svg{color:#FFD700}
-.benefit-card h3{color:#fff;font-weight:600;margin-bottom:6px;font-size:15px}
-.benefit-card p{color:rgba(255,255,255,0.4);font-size:13px;line-height:1.5}
+/* Calculator */
+.calc-line{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid #151515;font-size:13px}
+.calc-line:last-of-type{border-bottom:none}
+.calc-line .val{color:#FFD700;font-weight:600}
+.qty-control{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.qty-btn{width:34px;height:34px;border-radius:50%;background:#FFD700;color:#000;border:none;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;transition:opacity .2s}
+.qty-btn:hover{opacity:.8}
+.qty-val{font-size:22px;font-weight:700;color:#fff;min-width:40px;text-align:center}
+.calc-total{font-size:22px;font-weight:700;color:#FFD700;margin-top:14px;padding-top:14px;border-top:2px solid #FFD700;text-align:right}
+.calc-total span{font-size:12px;color:#999;font-weight:400}
+.gift-toggle{display:flex;align-items:center;gap:8px;font-size:12px;color:#bbb;cursor:pointer}
+.gift-toggle input{accent-color:#FFD700;width:15px;height:15px}
+.btn-order-big{width:100%;margin-top:16px;justify-content:center}
+.btn-pdf{width:100%;margin-top:8px;background:transparent;border:1px solid #FFD700;color:#FFD700;font-weight:500;font-size:13px;padding:10px 20px;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s}
+.btn-pdf:hover{background:rgba(255,215,0,.08)}
+.btn-pdf svg{width:15px;height:15px}
+.calc-note{font-size:10px;color:#555;margin-top:10px;text-align:center}
 
-/* ── TARGET ── */
-.target{padding:80px 0}
-.target-inner{max-width:1280px;margin:0 auto;padding:0 40px}
-.target h2{text-align:center;font-size:28px;font-weight:700;margin-bottom:40px;letter-spacing:-0.3px}
-.target-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.target-card{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);position:relative;aspect-ratio:3/4;cursor:pointer;transition:all .3s}
-.target-card:hover{border-color:rgba(255,215,0,0.2);transform:translateY(-4px)}
-.target-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.target-card:hover img{transform:scale(1.05)}
-.target-card .tc-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,transparent 100%);padding:20px 16px 16px}
-.target-card .tc-overlay p{color:#fff;font-weight:600;font-size:14px}
+/* Collage / Gallery */
+.gallery{max-width:1200px;margin:0 auto;padding:10px 24px 40px}
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.gallery-card{border-radius:10px;overflow:hidden;border:1px solid #1a1a1a;position:relative}
+.gallery-card img{width:100%;height:100%;object-fit:cover;display:block;min-height:260px}
+.gallery-card .tag{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.85));padding:24px 14px 12px;font-size:12px;color:#ccc}
 
-/* ── EXAMPLES ── */
-.examples{padding:80px 0;border-top:1px solid rgba(255,255,255,0.06)}
-.examples-inner{max-width:1280px;margin:0 auto;padding:0 40px}
-.examples-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
-.examples h2{font-size:28px;font-weight:700;letter-spacing:-0.3px}
-.examples-link{color:#FFD700;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px;transition:opacity .2s}
-.examples-link:hover{opacity:0.8}
-.examples-scroll{display:flex;gap:20px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-.examples-scroll::-webkit-scrollbar{height:4px}
-.examples-scroll::-webkit-scrollbar-thumb{background:#333;border-radius:2px}
-.ex-item{flex:0 0 200px;scroll-snap-align:start;text-align:center}
-.ex-circle{width:200px;height:200px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,215,0,0.15);margin:0 auto 12px;transition:all .3s}
-.ex-item:hover .ex-circle{border-color:rgba(255,215,0,0.4);box-shadow:0 0 30px rgba(255,215,0,0.1)}
-.ex-circle img{width:100%;height:100%;object-fit:cover}
-.ex-item p{color:rgba(255,255,255,0.5);font-size:13px}
+/* USE CASES */
+.use-cases{max-width:1200px;margin:0 auto;padding:10px 24px 50px}
+.use-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.use-left h2{font-size:22px;font-weight:700;margin-bottom:20px}
+.use-items{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.use-item{display:flex;align-items:center;gap:8px;padding:10px 12px;background:#0d0d0d;border-radius:8px;border:1px solid #151515}
+.use-item svg{width:18px;height:18px;color:#FFD700;flex-shrink:0}
+.use-item span{font-size:12px;color:#bbb}
+.use-right h2{font-size:18px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
+.see-all{font-size:12px;color:#FFD700;font-weight:400;cursor:pointer}
+.examples-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.example-card{border-radius:8px;overflow:hidden;position:relative;aspect-ratio:4/3;background:#0d0d0d}
+.example-card img{width:100%;height:100%;object-fit:cover}
+.example-card .tag{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.7);padding:6px 10px;font-size:11px;color:#ccc;text-align:center}
 
-/* ── FAQ ── */
-.faq{padding:80px 0;border-top:1px solid rgba(255,255,255,0.06)}
-.faq-inner{max-width:700px;margin:0 auto;padding:0 40px}
-.faq h2{text-align:center;font-size:28px;font-weight:700;margin-bottom:40px;letter-spacing:-0.3px}
-.faq-item{border:1px solid rgba(255,255,255,0.06);border-radius:12px;background:rgba(255,255,255,0.02);margin-bottom:10px;overflow:hidden;transition:border-color .3s}
-.faq-item.open{border-color:rgba(255,215,0,0.2)}
-.faq-q{padding:20px 24px;color:#fff;font-weight:500;font-size:15px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:none;width:100%;text-align:left;transition:color .2s}
+/* FAQ */
+.faq{max-width:1200px;margin:0 auto;padding:10px 24px 50px}
+.faq h2{font-size:22px;font-weight:700;margin-bottom:16px}
+.faq-item{background:#0a0a0a;border:1px solid #151515;border-radius:8px;margin-bottom:6px;overflow:hidden}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;cursor:pointer;font-size:13px;font-weight:500;transition:color .2s}
 .faq-q:hover{color:#FFD700}
-.faq-q svg{transition:transform .3s;flex-shrink:0;margin-left:12px;color:rgba(255,255,255,0.3)}
-.faq-item.open .faq-q svg{transform:rotate(180deg);color:#FFD700}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.faq-a-inner{padding:0 24px 20px;color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7}
+.faq-q .icon{font-size:18px;color:#FFD700;transition:transform .3s}
+.faq-item.open .faq-q .icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a-inner{padding:0 18px 14px;font-size:12px;color:#888;line-height:1.7}
+.faq-item.open .faq-a{max-height:200px}
 
-/* ── CTA ── */
-.cta{padding:80px 0;border-top:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden}
-.cta-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(255,215,0,0.05) 0%,transparent 60%);pointer-events:none}
-.cta-inner{max-width:700px;margin:0 auto;padding:0 40px;text-align:center;position:relative;z-index:1}
-.cta h2{font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:800;margin-bottom:16px;letter-spacing:-0.3px}
-.cta p{color:rgba(255,255,255,0.5);font-size:17px;margin-bottom:32px;line-height:1.6}
+/* CTA */
+.cta{max-width:1200px;margin:0 auto;padding:30px 24px 50px;text-align:center}
+.cta h2{font-size:26px;font-weight:700;margin-bottom:10px}
+.cta p{color:#888;font-size:14px;margin-bottom:20px}
 
-/* ── FOOTER ── */
-.footer{border-top:1px solid rgba(255,255,255,0.06);padding:48px 0 40px;margin-top:auto}
-.footer-inner{max-width:1280px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
-.footer-logo{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:700;color:#fff}
-.footer-logo svg{color:#FFD700}
-.footer .copy{color:rgba(255,255,255,0.3);font-size:13px}
-.footer .love{color:rgba(255,255,255,0.2);font-size:13px;display:flex;align-items:center;gap:6px}
+/* FOOTER */
+.footer{border-top:1px solid #151515;padding:24px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px}
+.footer-logo{font-size:17px;font-weight:700;color:#FFD700;margin-bottom:4px}
+.footer-copy{font-size:11px;color:#555}
+.footer-contacts{display:flex;flex-direction:column;gap:6px}
+.footer-contact{display:flex;align-items:center;gap:7px;font-size:12px;color:#888}
+.footer-contact svg{width:14px;height:14px;color:#FFD700}
+.footer-love{font-size:11px;color:#444;margin-top:12px;display:flex;align-items:center;gap:5px;justify-content:center}
+.footer-love svg{width:11px;height:11px;color:#c0392b}
 
-/* ── MODAL ── */
-.modal-overlay{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,0.8);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:16px}
-.modal-overlay.open{display:flex}
-.modal{width:100%;max-width:440px;background:#141414;border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:32px;position:relative;max-height:90vh;overflow-y:auto}
-.modal-close{position:absolute;top:16px;right:16px;color:rgba(255,255,255,0.4);background:none;font-size:22px;transition:color .2s}
-.modal-close:hover{color:#fff}
-.modal h3{font-size:20px;font-weight:700;color:#fff;margin-bottom:4px}
-.modal .mp{color:#FFD700;font-weight:700;font-size:20px;margin-bottom:24px}
-.fg{margin-bottom:16px}
-.fg label{display:block;color:rgba(255,255,255,0.5);font-size:13px;margin-bottom:6px}
-.fi{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 16px;color:#fff;font-size:14px;outline:none;transition:border-color .2s;font-family:inherit}
-.fi:focus{border-color:rgba(255,215,0,0.4)}
-.fi::placeholder{color:rgba(255,255,255,0.2)}
-textarea.fi{resize:none;min-height:76px}
-.os{background:rgba(255,255,255,0.03);border-radius:12px;padding:16px;margin-bottom:20px}
-.os-r{display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:6px}
-.os-r .v{color:rgba(255,255,255,0.8)}
-.os-r .g{color:#4ade80}
-.btn-sub{width:100%;background:#FFD700;color:#000;font-weight:700;padding:16px;border-radius:9999px;font-size:16px;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px}
-.btn-sub:hover{background:#e6c200}
+/* ORDER MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.show{display:flex}
+.modal{background:#111;border:2px solid #FFD700;border-radius:12px;padding:28px;max-width:440px;width:100%;max-height:90vh;overflow-y:auto}
+.modal h3{font-size:18px;font-weight:700;margin-bottom:18px;color:#FFD700}
+.form-group{margin-bottom:12px}
+.form-group label{display:block;font-size:12px;color:#999;margin-bottom:5px}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:6px;padding:9px 12px;color:#fff;font-size:13px;font-family:inherit;outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:#FFD700}
+.form-group textarea{resize:vertical;min-height:60px}
+.modal-actions{display:flex;gap:10px;margin-top:18px}
+.modal-actions button{flex:1;padding:11px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:opacity .2s}
+.modal-actions button:hover{opacity:.85}
+.modal-actions .btn-submit{background:#FFD700;color:#000}
+.modal-actions .btn-cancel{background:#2a2a2a;color:#fff}
+.success-msg{text-align:center;padding:16px}
+.success-msg svg{width:44px;height:44px;color:#FFD700;margin-bottom:10px}
+.success-msg p{color:#999;font-size:13px}
 
-/* ── RESPONSIVE ── */
-@media(max-width:1024px){
-  .cc-inner{grid-template-columns:1fr}
-  .calc-wrap{position:static}
-  .hero-inner{flex-direction:column;text-align:center}
-  .hero p{margin-left:auto;margin-right:auto}
-  .hero-btns{justify-content:center}
-  .hero-img-wrap{max-width:400px;margin:0 auto}
-  .benefits-inner{grid-template-columns:repeat(2,1fr)}
-  .target-grid{grid-template-columns:repeat(3,1fr)}
-  .footer-inner{justify-content:center;text-align:center}
+/* MOBILE */
+@media(max-width:900px){
+  .nav{display:none}
+  .menu-btn{display:block}
+  .nav.open{display:flex;flex-direction:column;position:absolute;top:52px;left:0;right:0;background:#000;border-bottom:1px solid #1a1a1a;padding:14px 24px;gap:12px;z-index:99}
+  .hero{grid-template-columns:1fr;padding:30px 16px 20px;gap:20px}
+  .hero h1{font-size:26px}
+  .hero-price{font-size:22px}
+  .features-grid{grid-template-columns:repeat(3,1fr)}
+  .main-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr}
+  .use-grid{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column}
 }
-@media(max-width:768px){
-  .nav,.nav-cta-wrap{display:none}
-  .burger{display:block}
-  .features-inner{grid-template-columns:repeat(2,1fr);gap:16px;padding:20px 24px}
-  .target-grid{grid-template-columns:repeat(2,1fr)}
-  .examples-header{flex-direction:column;gap:12px;align-items:flex-start}
-  .header-inner,.hero-inner,.cc-inner,.benefits-inner,.target-inner,.examples-inner,.faq-inner,.cta-inner,.footer-inner{padding-left:20px;padding-right:20px}
-}
-@media(max-width:480px){
-  .benefits-inner{grid-template-columns:1fr 1fr;gap:12px}
-  .target-grid{grid-template-columns:1fr 1fr;gap:12px}
-  .ex-item{flex:0 0 160px}
-  .ex-circle{width:160px;height:160px}
+@media(max-width:500px){
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .upload-grid{grid-template-columns:repeat(3,1fr)}
+  .use-items{grid-template-columns:1fr}
+  .examples-grid{grid-template-columns:1fr}
+  .hero h1{font-size:22px}
+  .hero-btns{flex-direction:column}
+  .hero-btns button{width:100%;justify-content:center}
 }
 </style>
 </head>
 <body>
 
-<!-- ═══ HEADER ═══ -->
+<!-- HEADER -->
 <header class="header">
   <div class="header-inner">
-    <div class="logo">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
-      Kyiv Light Logo
-    </div>
-    <nav class="nav">
+    <div class="logo">LIGHT LOGO</div>
+    <button class="menu-btn" onclick="document.querySelector('.nav').classList.toggle('open')" aria-label="Menu">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="mainNav">
       <a href="#about">Про нас</a>
-      <a href="#constructor">Продукція</a>
-      <a href="#examples">Кейси</a>
+      <a href="#product">Продукція</a>
+      <a href="#cases">Кейси</a>
       <a href="#constructor">Конструктор</a>
       <a href="#faq">FAQ</a>
       <a href="#contacts">Контакти</a>
     </nav>
-    <div class="nav-cta-wrap">
-      <a href="#constructor" class="nav-cta">Розрахувати гірлянду <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-    </div>
-    <button class="burger" onclick="document.getElementById('mm').classList.toggle('open')" aria-label="Меню">☰</button>
-  </div>
-  <div class="mobile-menu" id="mm">
-    <a href="#about" onclick="closeMm()">Про нас</a>
-    <a href="#constructor" onclick="closeMm()">Конструктор</a>
-    <a href="#examples" onclick="closeMm()">Кейси</a>
-    <a href="#faq" onclick="closeMm()">FAQ</a>
-    <a href="#contacts" onclick="closeMm()">Контакти</a>
-    <a href="#constructor" class="nav-cta" style="text-align:center;margin-top:8px" onclick="closeMm()">Розрахувати гірлянду</a>
+    <button class="btn-order" onclick="openModal()">
+      Замовити комплект
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
   </div>
 </header>
 
-<!-- ═══ HERO ═══ -->
+<!-- HERO -->
 <section class="hero" id="about">
-  <div class="hero-glow"></div>
-  <div class="hero-inner">
-    <div class="hero-text">
-      <p class="hero-label">Новорічна гірлянда з вашим логотипом</p>
-      <h1>ЗРОБИМО ГІРЛЯНДИ З ВАШИМ <span>ЛОГОТИПОМ</span></h1>
-      <p>Будь-яка форма. Будь-який логотип. Вирізаємо, гравіруємо та збираємо за 3 дні до Нового року.</p>
-      <div class="hero-btns">
-        <a href="#constructor" class="btn-primary">Створити свою гірлянду <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-        <button class="btn-video">
-          <span class="btn-video-circle"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,3 20,12 6,21"/></svg></span>
-          Дивитись відео
-        </button>
-      </div>
+  <div>
+    <div class="hero-label">БРЕНД ПРИЯНДА</div>
+    <h1>6 ПІДВІСОК<br>ВАШОГО БРЕНДУ</h1>
+    <p class="hero-sub">Один комплект — шість акрилових підвісок з вашим логотипом. Створюйте атмосферу, даруйте емоції.</p>
+    <div class="hero-price">90 грн / комплект</div>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('constructor').scrollIntoView({behavior:'smooth'})">
+        Створити свій комплект
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
     </div>
-    <div class="hero-img-wrap">
-      <div class="hero-img-glow"></div>
-      <img src="garland-product-1.png" alt="Гірлянда з логотипами">
+  </div>
+  <div class="hero-img">
+    <img src="garland-collage.png" alt="Комплекти Light Logo — приклади">
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="product">
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon"><svg width="24" height="24" fill="none" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+      <p>6 акрилових підвісок у комплекті</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg width="24" height="24" fill="none" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg></div>
+      <p>Лазерне гравіювання</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg width="24" height="24" fill="none" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v1m-7 4h1m12 0h1M4.6 5.6l.7.7M18.7 18.7l.7.7M3 12H2m20 0h-1M4.6 18.4l.7-.7M18.7 5.3l.7-.7"/></svg></div>
+      <p>Тепле LED світло</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg width="24" height="24" fill="none" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2h6M12 2v4M12 18v4M9 22h6"/></svg></div>
+      <p>Батарейки в комплекті</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg width="24" height="24" fill="none" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+      <p>Преміум упаковка</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg width="24" height="24" fill="none" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7"/></svg></div>
+      <p>Готово до подарунку</p>
     </div>
   </div>
 </section>
 
-<!-- ═══ FEATURES BAR ═══ -->
-<section class="features-bar">
-  <div class="features-inner">
-    <div class="feature-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg><span>Будь-яка форма</span></div>
-    <div class="feature-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg><span>Ваш логотип<br>PNG, SVG, AI, PDF</span></div>
-    <div class="feature-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span>Виробимо за 3 дні</span></div>
-    <div class="feature-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg><span>Преміум акрил 3-5 мм</span></div>
-    <div class="feature-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg><span>Доставка по всій Україні</span></div>
+<!-- PHOTO GALLERY -->
+<section class="gallery">
+  <div class="gallery-grid">
+    <div class="gallery-card">
+      <img src="garland-product-1.png" alt="Гірлянда з логотипами — приклад 1">
+      <div class="tag">Логотипи на акрилових підвісках</div>
+    </div>
+    <div class="gallery-card">
+      <img src="garland-product-2.png" alt="Гірлянда в інтер'єрі — приклад 2">
+      <div class="tag">Гірлянда в інтер'єрі ресторану</div>
+    </div>
   </div>
 </section>
 
-<!-- ═══ CONSTRUCTOR + CALCULATOR ═══ -->
-<section class="cc-section" id="constructor">
-  <div class="cc-inner">
+<!-- CONSTRUCTOR + CALCULATOR -->
+<section class="main-section" id="constructor">
+  <div class="main-grid">
     <!-- Constructor -->
-    <div>
-      <h2 class="section-title"><span class="num">1.</span> КОНСТРУКТОР ГІРЛЯНДИ</h2>
-      <div class="card" id="dropZone">
-        <h3 class="cc-step-title"><span class="cc-step-num">1</span> Завантажте ваш логотип або зображення</h3>
-        <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fi').click()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          <p>Перетягніть файл сюди або оберіть на комп'ютері</p>
-          <p class="small">Підтримуються формати: PNG, SVG, AI, PDF</p>
-        </div>
-        <input type="file" id="fi" accept=".png,.svg,.ai,.pdf" multiple hidden>
-        <div class="file-previews" id="fp"></div>
+    <div class="constructor">
+      <div class="section-title">1. КОНСТРУКТОР КОМПЛЕКТУ</div>
+
+      <div class="step-title">Завантажте логотипи (6 шт)</div>
+      <p style="font-size:11px;color:#555;margin-bottom:8px">PNG, SVG — прозорий фон, 400×400px</p>
+      <div class="upload-grid" id="uploadGrid">
+        <div class="upload-box" id="ub0"><input type="file" accept="image/png,image/svg+xml,image/jpeg" onchange="handleUpload(0,this)"><span class="plus">+</span><span class="label">Логотип 1</span></div>
+        <div class="upload-box" id="ub1"><input type="file" accept="image/png,image/svg+xml,image/jpeg" onchange="handleUpload(1,this)"><span class="plus">+</span><span class="label">Логотип 2</span></div>
+        <div class="upload-box" id="ub2"><input type="file" accept="image/png,image/svg+xml,image/jpeg" onchange="handleUpload(2,this)"><span class="plus">+</span><span class="label">Логотип 3</span></div>
+        <div class="upload-box" id="ub3"><input type="file" accept="image/png,image/svg+xml,image/jpeg" onchange="handleUpload(3,this)"><span class="plus">+</span><span class="label">Логотип 4</span></div>
+        <div class="upload-box" id="ub4"><input type="file" accept="image/png,image/svg+xml,image/jpeg" onchange="handleUpload(4,this)"><span class="plus">+</span><span class="label">Логотип 5</span></div>
+        <div class="upload-box" id="ub5"><input type="file" accept="image/png,image/svg+xml,image/jpeg" onchange="handleUpload(5,this)"><span class="plus">+</span><span class="label">Логотип 6</span></div>
       </div>
-      <div class="card">
-        <h3 class="cc-step-title"><span class="cc-step-num">2</span> Додайте підсвітку до гірлянди</h3>
-        <p class="step-hint">Перетягніть, щоб змінити порядок. Натисніть, щоб видалити.</p>
-        <div class="light-previews" id="lp"><div class="ph-circles"><div class="ph-circle">+1</div><div class="ph-circle">+2</div><div class="ph-circle">+3</div><div class="ph-circle">+4</div><div class="ph-circle">+5</div></div></div>
-      </div>
-      <div class="card">
-        <h3 class="cc-step-title"><span class="cc-step-num">3</span> Налаштуйте параметри підсвітки</h3>
-        <div class="setting-block">
-          <span class="setting-label">Розмір підсвітки</span>
-          <div class="btn-group" id="sg">
-            <button class="btn-opt" data-v="40 мм">40 мм</button>
-            <button class="btn-opt active" data-v="60 мм">60 мм</button>
-            <button class="btn-opt" data-v="80 мм">80 мм</button>
-            <button class="btn-opt" data-v="100 мм">100 мм</button>
-          </div>
+
+      <div class="step-title" style="margin-top:16px">Попередній перегляд</div>
+      <div class="garland-preview" id="garlandPreview">
+        <img class="bg-photo" src="garland-blank.png" alt="Заготовка гірлянди">
+        <div class="garland-overlay" id="garlandOverlay">
+          <div class="logo-slot" id="ls0" style="left:5%;top:20%;width:20%;padding-bottom:20%"><span class="empty-label">1</span></div>
+          <div class="logo-slot" id="ls1" style="left:25%;top:14%;width:20%;padding-bottom:20%"><span class="empty-label">2</span></div>
+          <div class="logo-slot" id="ls2" style="left:45%;top:12%;width:20%;padding-bottom:20%"><span class="empty-label">3</span></div>
+          <div class="logo-slot" id="ls3" style="left:65%;top:14%;width:20%;padding-bottom:20%"><span class="empty-label">4</span></div>
+          <div class="logo-slot" id="ls4" style="left:85%;top:20%;width:20%;padding-bottom:20%"><span class="empty-label">5</span></div>
         </div>
-        <div class="setting-block">
-          <span class="setting-label">Колір світла</span>
-          <div class="btn-group" id="cg">
-            <button class="btn-opt active" data-v="Теплий білий">Теплий білий</button>
-            <button class="btn-opt" data-v="Холодний білий">Холодний білий</button>
-            <button class="btn-opt" data-v="Жовтий">Жовтий</button>
-            <button class="btn-opt" data-v="Синій">Синій</button>
-            <button class="btn-opt" data-v="RGB (на вибір)">RGB (на вибір)</button>
-          </div>
-        </div>
-        <div>
-          <span class="setting-label">Додаткові опції</span>
-          <label class="chk-row"><input type="checkbox" id="ce" checked><span>Гравірування з двох сторін</span></label>
-          <label class="chk-row"><input type="checkbox" id="cp"><span>Індивідуальна упаковка</span></label>
-        </div>
+        <div class="garland-note">Завантажте логотипи — вони з'являться на підвісках</div>
       </div>
     </div>
+
     <!-- Calculator -->
-    <div>
-      <h2 class="section-title"><span class="num">2.</span> КАЛЬКУЛЯТОР</h2>
-      <div class="card calc-wrap">
-        <div class="slider-wrap">
-          <div class="calc-header"><span class="setting-label" style="margin:0">Кількість підсвіток</span><span class="calc-val" id="cv">100</span></div>
-          <input type="range" id="sl" min="10" max="500" value="100">
-          <div class="slider-labels"><span>10</span><span>500</span></div>
-        </div>
-        <div class="setting-block">
-          <span class="setting-label">Відстань між підсвітками</span>
-          <div class="btn-group" id="dg">
-            <button class="btn-opt active" data-v="10">10 см</button>
-            <button class="btn-opt" data-v="15">15 см</button>
-            <button class="btn-opt" data-v="20">20 см</button>
-            <button class="btn-opt" data-v="25">25 см</button>
-            <button class="btn-opt" data-v="30">30 см</button>
-          </div>
-        </div>
-        <div class="info-row"><span class="lbl">Загальна довжина гірлянди</span><span class="val" id="tl">9.9 м</span></div>
-        <div class="setting-block" style="margin-bottom:16px">
-          <span class="setting-label">Тип підключення</span>
-          <div class="btn-group" id="cnng">
-            <button class="btn-opt active" data-v="USB">USB</button>
-            <button class="btn-opt" data-v="220V">220V</button>
-          </div>
-        </div>
-        <div class="info-row"><span class="lbl">Термін виробництва</span><span class="val">3-5 робочих днів</span></div>
-        <div class="price-section">
-          <h4>Розрахунок вартості</h4>
-          <div class="price-row"><span class="pl" id="prl">100 шт × 60 мм</span><span class="pv" id="prs">18 000 грн</span></div>
-          <div class="price-row"><span class="pl" id="prll">Підсвітка (теплий білий)</span><span class="pv" id="prlv">1 500 грн</span></div>
-          <div class="price-row" id="pexr" style="display:none"><span class="pl">Додаткові опції</span><span class="pv" id="pexv">500 грн</span></div>
-          <div class="price-row"><span class="pl">Доставка</span><span class="pv" style="color:#4ade80">Безкоштовно</span></div>
-          <div class="total-row"><span class="tl">Разом:</span><span class="tv" id="tp">19 800 грн</span></div>
-        </div>
-        <button class="btn-order" onclick="openModal()">Замовити гірлянду <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
-        <p class="order-note">Без передоплати. Оплата при отриманні.</p>
+    <div class="calculator">
+      <div class="section-title">2. КАЛЬКУЛЯТОР</div>
+
+      <div style="font-size:12px;color:#888;margin-bottom:6px">Кількість комплектів</div>
+      <div class="qty-control">
+        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+        <div class="qty-val" id="qtyVal">1</div>
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+
+      <div class="calc-line"><span>Комплект (6 підвісок + LED + батарейки)</span><span class="val">90 грн</span></div>
+      <div class="calc-line"><span>Кількість</span><span class="val" id="calcQty">1 шт</span></div>
+      <div class="calc-line"><span>Ціна за комплект</span><span class="val">90 грн</span></div>
+      <div class="calc-line">
+        <label class="gift-toggle" style="margin:0"><input type="checkbox" id="giftCheck" onchange="updateCalc()"><span>Подарункова упаковка (+20 грн)</span></label>
+        <span class="val" id="giftPrice" style="display:none">+20 грн</span>
+      </div>
+
+      <div class="calc-total" id="calcTotal"><span>РАЗОМ</span><br>90 грн</div>
+
+      <button class="btn-primary btn-order-big" onclick="openModal()">
+        Замовити комплекти
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="btn-pdf" onclick="generatePDF()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+        Завантажити КП (PDF)
+      </button>
+      <p class="calc-note">Виготовлення 3-5 днів. Доставка по Україні.</p>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="use-cases" id="cases">
+  <div class="use-grid">
+    <div class="use-left">
+      <h2>Для кого наші комплекти</h2>
+      <div class="use-items">
+        <div class="use-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7"/></svg><span>Корпоративні подарунки</span></div>
+        <div class="use-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg><span>Офісні компанії</span></div>
+        <div class="use-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h12a2 2 0 002-2v-2H10v2a2 2 0 01-2 2zm0 0a2 2 0 01-2-2v-2H4v2a2 2 0 002 2h2z"/></svg><span>Ресторани та кафе</span></div>
+        <div class="use-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18"/></svg><span>Магазини та бренди</span></div>
+        <div class="use-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>Івенти та фотозони</span></div>
+        <div class="use-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg><span>Клієнтам та партнерам</span></div>
+      </div>
+    </div>
+    <div class="use-right">
+      <h2>Приклади комплектів <span class="see-all">Дивитись всі →</span></h2>
+      <div class="examples-grid">
+        <div class="example-card"><img src="garland-product-1.png" alt="IT компанія"><div class="tag">IT компанія</div></div>
+        <div class="example-card"><img src="garland-product-2.png" alt="Ресторан"><div class="tag">Ресторан</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ BENEFITS ═══ -->
-<section class="benefits">
-  <div class="benefits-inner">
-    <div class="benefit-card"><div class="ic"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div><h3>Прозорий акрил</h3><p>Преміум акрил 3-5 мм з ідеальною прозорістю</p></div>
-    <div class="benefit-card"><div class="ic"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Яскраве світло</h3><p>LED-підсвітка, яка не нагрівається</p></div>
-    <div class="benefit-card"><div class="ic"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></div><h3>Міцні матеріали</h3><p>Не бояться вологи, морозу та сонця</p></div>
-    <div class="benefit-card"><div class="ic"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3>Безпечне використання</h3><p>Низька напруга, економне споживання</p></div>
-  </div>
-</section>
-
-<!-- ═══ ДЛЯ КОГО? ═══ -->
-<section class="target">
-  <div class="target-inner">
-    <h2>ДЛЯ КОГО?</h2>
-    <div class="target-grid">
-      <div class="target-card"><img src="garland-product-1.png" alt="Корпоративні подарунки"><div class="tc-overlay"><p>Корпоративні подарунки</p></div></div>
-      <div class="target-card"><img src="garland-product-2.png" alt="Офіс та компанії"><div class="tc-overlay"><p>Офіс та компанії</p></div></div>
-      <div class="target-card"><img src="hero-garland.png" alt="Кав'ярні та ресторани"><div class="tc-overlay"><p>Кав'ярні та ресторани</p></div></div>
-      <div class="target-card"><img src="garland-product-1.png" alt="Магазини та бутики"><div class="tc-overlay"><p>Магазини та бутики</p></div></div>
-      <div class="target-card"><img src="garland-product-2.png" alt="Івенти та фотозони"><div class="tc-overlay"><p>Івенти та фотозони</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ ПРИКЛАДИ РОБІТ ═══ -->
-<section class="examples" id="examples">
-  <div class="examples-inner">
-    <div class="examples-header">
-      <h2>ПРИКЛАДИ РОБІТ</h2>
-      <a href="#constructor" class="examples-link">Дивитись всі кейси <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-    </div>
-    <div class="examples-scroll">
-      <div class="ex-item"><div class="ex-circle"><img src="garland-product-1.png" alt="Київ Незламний"></div><p>Київ Незламний</p></div>
-      <div class="ex-item"><div class="ex-circle"><img src="garland-product-2.png" alt="Київводоканал"></div><p>Київводоканал</p></div>
-      <div class="ex-item"><div class="ex-circle"><img src="hero-garland.png" alt="З Різдвом Київ"></div><p>З Різдвом Київ</p></div>
-      <div class="ex-item"><div class="ex-circle"><img src="garland-product-1.png" alt="Тризуб"></div><p>Тризуб</p></div>
-      <div class="ex-item"><div class="ex-circle"><img src="garland-product-2.png" alt="Сніжинка"></div><p>Сніжинка</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FAQ ═══ -->
+<!-- FAQ -->
 <section class="faq" id="faq">
-  <div class="faq-inner">
-    <h2>FAQ</h2>
-    <div class="faq-item"><button class="faq-q" onclick="togFaq(this)">З якого матеріалу виготовляється гірлянда?<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Ми використовуємо преміум акрил товщиною 3-5 мм з ідеальною прозорістю. LED-підсвітка не нагрівається, безпечна для використання протягом тривалого часу. Всі матеріали відповідають стандартам якості та безпечні для дітей.</div></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="togFaq(this)">Чи можна замовити індивідуальну форму?<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Так! Ми приймаємо логотипи у форматах PNG, SVG, AI та PDF. Будь-яка форма — кругла, квадратна, у вигляді логотипу чи символу. Наші інженери адаптують ваш дизайн для лазерної гравірування.</div></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="togFaq(this)">Який мінімальний тираж?<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Мінімальне замовлення — від 10 підсвіток. Ми рекомендуємо замовляти від 50 штук для оптимального вигляду гірлянди. Для корпоративних замовлень діють спеціальні ціни.</div></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="togFaq(this)">Скільки часу займає виготовлення?<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Стандартний термін виробництва — 3-5 робочих днів. У сезон (листопад-грудень) рекомендуємо замовляти заздалегідь. Експрес-виробництво за 1-2 дні можливе за додаткову плату.</div></div></div>
+  <h2>FAQ</h2>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span>Чи можна замовити більше 6 підвісок в комплект?</span><span class="icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Так, ми приймаємо індивідуальні замовлення на будь-яку кількість підвісок. Зв'яжіться з нами для обговорення деталей та отримання індивідуальної пропозиції.</div></div>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span>Які формати файлів приймаєте?</span><span class="icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Ми приймаємо PNG, SVG, AI (Adobe Illustrator) та PDF. Рекомендуємо PNG з прозорим фоном, роздільна здатність від 400×400px.</div></div>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span>Що входить у комплект?</span><span class="icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">6 акрилових підвісок з лазерним гравіюванням, LED підвіска з теплим світлом, батарейки, інструкція. Опціонально — преміум упаковка (+20 грн).</div></div>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span>Які терміни виготовлення?</span><span class="icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Стандарт — 3-5 робочих днів. Від 50 комплектів — до 7 днів. Доставка по Україні 1-2 дні після відправки.</div></div>
   </div>
 </section>
 
-<!-- ═══ CTA ═══ -->
+<!-- CTA -->
 <section class="cta">
-  <div class="cta-glow"></div>
-  <div class="cta-inner">
-    <h2>ГОТОВІ СТВОРИТИ СВОЮ ГІРЛЯНДУ?</h2>
-    <p>Створіть унікальну новорічну гірлянду з вашим логотипом за 3 хвилини!</p>
-    <a href="#constructor" class="btn-primary">Почати конструювання <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-  </div>
+  <h2>ГОТОВІ СТВОРИТИ СВІЙ КОМПЛЕКТ?</h2>
+  <p>Завантажте 6 логотипів і дізнайтеся вартість за 1 хвилину.</p>
+  <button class="btn-primary" onclick="document.getElementById('constructor').scrollIntoView({behavior:'smooth'})">
+    Почати створення
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </button>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- FOOTER -->
 <footer class="footer" id="contacts">
   <div class="footer-inner">
     <div>
-      <div class="footer-logo">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
-        Kyiv Light Logo
-      </div>
+      <div class="footer-logo">LIGHT LOGO</div>
+      <div class="footer-copy">&copy; 2024 Light Logo. Усі права захищені.</div>
     </div>
-    <p class="copy">&copy; 2024 Kyiv Light Logo. Усі права захищені.</p>
-    <p class="love">Створено з любов&apos;ю до свята</p>
+    <div class="footer-contacts">
+      <div class="footer-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+38 093 123 45 67</div>
+      <div class="footer-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>2294598@gmail.com</div>
+      <div class="footer-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>@light.logo</div>
+      <div class="footer-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>t.me/lightlogo</div>
+    </div>
+  </div>
+  <div class="footer-love">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+    Створено з любов'ю до деталей
   </div>
 </footer>
 
-<!-- ═══ ORDER MODAL ═══ -->
-<div class="modal-overlay" id="om">
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="orderModal">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal()">&times;</button>
-    <h3>Оформлення замовлення</h3>
-    <div class="mp" id="mp">19 800 грн</div>
-    <form id="of" action="https://formsubmit.co/2294598@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="Нове замовлення гірлянди — Kyiv Light Logo">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="box">
-      <input type="hidden" name="Параметри" id="fp_hidden">
-      <div class="fg"><label>Ім'я *</label><input class="fi" name="Ім'я" required placeholder="Ваше ім'я"></div>
-      <div class="fg"><label>Телефон</label><input class="fi" name="Телефон" placeholder="+38 0XX XXX XX XX"></div>
-      <div class="fg"><label>Email</label><input class="fi" name="Email" type="email" placeholder="your@email.com"></div>
-      <div class="fg"><label>Коментар</label><textarea class="fi" name="Коментар" placeholder="Додаткові побажання..."></textarea></div>
-      <div class="os" id="osum"></div>
-      <button type="submit" class="btn-sub">Відправити запит <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+    <h3>Замовити комплекти</h3>
+    <form id="orderForm" onsubmit="submitOrder(event)">
+      <div class="form-group"><label>Ваше ім'я *</label><input type="text" name="name" required placeholder="Іван Петренко"></div>
+      <div class="form-group"><label>Телефон *</label><input type="tel" name="phone" required placeholder="+38 0XX XXX XX XX"></div>
+      <div class="form-group"><label>Email *</label><input type="email" name="email" required placeholder="email@example.com"></div>
+      <div class="form-group"><label>Кількість комплектів</label><input type="text" name="quantity" id="modalQty" readonly></div>
+      <div class="form-group"><label>Коментар</label><textarea name="comment" placeholder="Додаткові побажання..."></textarea></div>
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" onclick="closeModal()">Скасувати</button>
+        <button type="submit" class="btn-submit">Відправити запит</button>
+      </div>
     </form>
+    <div class="success-msg" id="successMsg" style="display:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+      <p>Дякуємо! Ваш запит відправлено. Ми зв'яжемося з вами протягом 2 годин.</p>
+    </div>
   </div>
 </div>
 
 <script>
-let lc=100,ls='60 мм',lcl='Теплий білий',dst=10,ct='USB',eng=true,pkg=false;
-const uf=[];
-const SP={'40 мм':140,'60 мм':180,'80 мм':220,'100 мм':260};
-const CP={'Теплий білий':0,'Холодний білий':0,'Жовтий':0,'Синій':0,'RGB (на вибір)':15};
-const LP=15,EP=300,PP=200;
-function f(n){return n.toLocaleString('uk-UA')+' грн'}
-function calc(){
-  const sub=lc*SP[ls],lco=lc*LP+lc*CP[lcl],ex=(eng?EP:0)+(pkg?PP:0),tot=sub+lco+ex;
-  const len=((lc-1)*dst)/100;
-  document.getElementById('cv').textContent=lc;
-  document.getElementById('tl').textContent=len.toFixed(1)+' м';
-  document.getElementById('prl').textContent=lc+' шт × '+ls;
-  document.getElementById('prs').textContent=f(sub);
-  document.getElementById('prll').textContent='Підсвітка ('+lcl.toLowerCase()+')';
-  document.getElementById('prlv').textContent=f(lc*LP+lc*CP[lcl]);
-  const er=document.getElementById('pexr');
-  if(ex>0){er.style.display='flex';document.getElementById('pexv').textContent=f(ex)}else{er.style.display='none'}
-  document.getElementById('tp').textContent=f(tot);
-  document.getElementById('mp').textContent=f(tot);
+let quantity = 1;
+const uploadedImages = [null,null,null,null,null,null];
+const PRICE_PER_SET = 90;
+const GIFT_WRAP_PRICE = 20;
+
+// Upload
+function handleUpload(idx, input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    uploadedImages[idx] = e.target.result;
+    const box = document.getElementById('ub' + idx);
+    box.classList.add('has-image');
+    box.innerHTML = '<input type="file" accept="image/png,image/svg+xml,image/jpeg" onchange="handleUpload(' + idx + ',this)">' +
+      '<img src="' + e.target.result + '">' +
+      '<button class="remove-img" onclick="removeUpload(' + idx + ',event)">&times;</button>';
+    updateGarlandPreview();
+  };
+  reader.readAsDataURL(file);
 }
-function setupG(id,cb){document.querySelectorAll('#'+id+' .btn-opt').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('#'+id+' .btn-opt').forEach(x=>x.classList.remove('active'));b.classList.add('active');cb(b.dataset.v);calc()})})}
-setupG('sg',v=>ls=v);
-setupG('cg',v=>lcl=v);
-setupG('dg',v=>dst=parseInt(v));
-setupG('cnng',v=>ct=v);
-document.getElementById('sl').addEventListener('input',e=>{lc=parseInt(e.target.value);calc()});
-document.getElementById('ce').addEventListener('change',e=>{eng=e.target.checked;calc()});
-document.getElementById('cp').addEventListener('change',e=>{pkg=e.target.checked;calc()});
-const fi=document.getElementById('fi'),uz=document.getElementById('uploadZone');
-fi.addEventListener('change',e=>addF(e.target.files));
-document.getElementById('dropZone').addEventListener('dragover',e=>{e.preventDefault();uz.classList.add('dragover')});
-document.getElementById('dropZone').addEventListener('dragleave',()=>uz.classList.remove('dragover'));
-document.getElementById('dropZone').addEventListener('drop',e=>{e.preventDefault();uz.classList.remove('dragover');addF(e.dataTransfer.files)});
-function addF(files){Array.from(files).forEach(fl=>{if(!fl.type.startsWith('image/'))return;const r=new FileReader();r.onload=e=>{uf.push({n:fl.name,s:e.target.result});renderF()};r.readAsDataURL(fl)});fi.value=''}
-function renderF(){const c=document.getElementById('fp'),l=document.getElementById('lp');c.innerHTML='';l.innerHTML='';
-uf.forEach((fl,i)=>{c.innerHTML+='<div class="file-preview"><img src="'+fl.s+'" alt=""><button class="rm" onclick="rmF('+i+')">×</button></div>';l.innerHTML+='<div class="light-circle"><img src="'+fl.s+'" alt=""></div>'});
-if(!uf.length)l.innerHTML='<div class="ph-circles"><div class="ph-circle">+1</div><div class="ph-circle">+2</div><div class="ph-circle">+3</div><div class="ph-circle">+4</div><div class="ph-circle">+5</div></div>'}
-function rmF(i){uf.splice(i,1);renderF()}
-function togFaq(btn){const it=btn.parentElement,ans=it.querySelector('.faq-a'),op=it.classList.contains('open');
-document.querySelectorAll('.faq-item').forEach(fi=>{fi.classList.remove('open');fi.querySelector('.faq-a').style.maxHeight=null});
-if(!op){it.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}}
-function openModal(){
-  const sub=lc*SP[ls],lco=lc*LP+lc*CP[lcl],ex=(eng?EP:0)+(pkg?PP:0),tot=sub+lco+ex,len=((lc-1)*dst)/100;
-  document.getElementById('fp_hidden').value=lc+' шт × '+ls+' | Колір: '+lcl+' | Відстань: '+dst+' см | Підключення: '+ct+' | Довжина: '+len.toFixed(1)+' м'+(eng?' | Гравірування: так':'')+(pkg?' | Упаковка: так':'')+' | Разом: '+f(tot);
-  let s='';s+='<div class="os-r"><span>Підсвітки</span><span class="v">'+lc+' шт × '+ls+'</span></div>';
-  s+='<div class="os-r"><span>Колір</span><span class="v">'+lcl+'</span></div>';
-  s+='<div class="os-r"><span>Відстань</span><span class="v">'+dst+' см</span></div>';
-  s+='<div class="os-r"><span>Підключення</span><span class="v">'+ct+'</span></div>';
-  s+='<div class="os-r"><span>Довжина</span><span class="v">'+len.toFixed(1)+' м</span></div>';
-  if(eng)s+='<div class="os-r"><span>Гравірування</span><span class="v g">Так</span></div>';
-  if(pkg)s+='<div class="os-r"><span>Упаковка</span><span class="v g">Так</span></div>';
-  document.getElementById('osum').innerHTML=s;
-  document.getElementById('om').classList.add('open');
+
+function removeUpload(idx, e) {
+  e.stopPropagation();
+  e.preventDefault();
+  uploadedImages[idx] = null;
+  const box = document.getElementById('ub' + idx);
+  box.classList.remove('has-image');
+  box.innerHTML = '<input type="file" accept="image/png,image/svg+xml,image/jpeg" onchange="handleUpload(' + idx + ',this)"><span class="plus">+</span><span class="label">Логотип ' + (idx+1) + '</span>';
+  updateGarlandPreview();
 }
-function closeModal(){document.getElementById('om').classList.remove('open')}
-document.getElementById('om').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal()});
-function closeMm(){document.getElementById('mm').classList.remove('open')}
-calc();
+
+function updateGarlandPreview() {
+  for (let i = 0; i < 5; i++) {
+    const slot = document.getElementById('ls' + i);
+    if (uploadedImages[i]) {
+      slot.innerHTML = '<img src="' + uploadedImages[i] + '" alt="Логотип ' + (i+1) + '">';
+    } else {
+      slot.innerHTML = '<span class="empty-label">' + (i+1) + '</span>';
+    }
+  }
+}
+
+// Calculator
+function changeQty(delta) {
+  quantity = Math.max(1, Math.min(999, quantity + delta));
+  document.getElementById('qtyVal').textContent = quantity;
+  document.getElementById('calcQty').textContent = quantity + ' шт';
+  updateCalc();
+}
+
+function updateCalc() {
+  const gift = document.getElementById('giftCheck').checked;
+  document.getElementById('giftPrice').style.display = gift ? 'inline' : 'none';
+  const total = quantity * PRICE_PER_SET + (gift ? quantity * GIFT_WRAP_PRICE : 0);
+  document.getElementById('calcTotal').innerHTML = '<span>РАЗОМ</span><br>' + total + ' грн';
+}
+
+// FAQ
+function toggleFaq(item) { item.classList.toggle('open'); }
+
+// Modal
+function openModal() {
+  const gift = document.getElementById('giftCheck').checked;
+  const total = quantity * PRICE_PER_SET + (gift ? quantity * GIFT_WRAP_PRICE : 0);
+  document.getElementById('modalQty').value = quantity + ' комплект(ів) — ' + total + ' грн';
+  document.getElementById('orderForm').style.display = 'block';
+  document.getElementById('successMsg').style.display = 'none';
+  document.getElementById('orderModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('orderModal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+document.getElementById('orderModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+
+// Submit
+async function submitOrder(e) {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+  const gift = document.getElementById('giftCheck').checked;
+  const total = quantity * PRICE_PER_SET + (gift ? quantity * GIFT_WRAP_PRICE : 0);
+  formData.append('_subject', 'Нове замовлення Light Logo — ' + formData.get('name'));
+  formData.append('_captcha', 'false');
+  formData.append('_template', 'table');
+  formData.append('Деталі', 'Кількість: ' + quantity + ' комплектів\nПодарункова упаковка: ' + (gift ? 'Так' : 'Ні') + '\nЦіна: ' + total + ' грн\nЛоготипів завантажено: ' + uploadedImages.filter(Boolean).length);
+  try {
+    const btn = form.querySelector('.btn-submit');
+    btn.textContent = 'Відправка...';
+    btn.disabled = true;
+    const resp = await fetch('https://formsubmit.co/ajax/2294598@gmail.com', { method: 'POST', body: formData });
+    if (resp.ok) {
+      form.style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    } else {
+      alert('Помилка. Напишіть на 2294598@gmail.com');
+      btn.textContent = 'Відправити запит'; btn.disabled = false;
+    }
+  } catch (err) {
+    alert('Помилка з\'єднання. Спробуйте ще раз.');
+    form.querySelector('.btn-submit').textContent = 'Відправити запит';
+    form.querySelector('.btn-submit').disabled = false;
+  }
+}
+
+// PDF
+function generatePDF() {
+  const gift = document.getElementById('giftCheck').checked;
+  const total = quantity * PRICE_PER_SET + (gift ? quantity * GIFT_WRAP_PRICE : 0);
+  const dateStr = new Date().toLocaleDateString('uk-UA', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  const imagesHTML = uploadedImages.filter(Boolean).map(function(src) {
+    return '<img src="' + src + '" style="width:70px;height:70px;object-fit:contain;border-radius:50%;border:1px solid #ddd">';
+  }).join('');
+  const w = window.open('', '_blank');
+  w.document.write('<!DOCTYPE html><html lang="uk"><head><meta charset="UTF-8"><title>КП - Light Logo</title><style>body{font-family:Arial,sans-serif;max-width:680px;margin:40px auto;padding:20px;color:#222;line-height:1.6}.hdr{display:flex;justify-content:space-between;border-bottom:3px solid #B8860B;padding-bottom:14px;margin-bottom:20px}.logo{font-size:22px;font-weight:700;color:#B8860B}table{width:100%;border-collapse:collapse;margin:16px 0}th{background:#f5f5f5;text-align:left;padding:8px 10px;font-size:12px}td{padding:8px 10px;border-bottom:1px solid #eee;font-size:12px}.total{font-weight:700;font-size:16px;border-top:2px solid #333}.total td{padding:12px 10px}.total-val{color:#B8860B;font-size:18px}.logos{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0;padding:14px;background:#f9f9f9;border-radius:8px}.foot{margin-top:24px;padding-top:12px;border-top:1px solid #ddd;font-size:10px;color:#999;text-align:center}@media print{body{margin:20px}}</style></head><body><div class="hdr"><div class="logo">LIGHT LOGO</div><div style="color:#888;font-size:12px">' + dateStr + '</div></div><h1 style="font-size:20px">Комерційна пропозиція</h1><p style="color:#888;font-size:13px;margin-bottom:16px">Комплекти підвісок з вашим логотипом</p><table><thead><tr><th>Позиція</th><th>Деталі</th><th>Кількість</th><th>Ціна</th></tr></thead><tbody><tr><td>Комплект підвісок</td><td>6 акрилових + LED + батарейки</td><td>' + quantity + ' шт</td><td>' + (quantity * PRICE_PER_SET) + ' грн</td></tr>' + (gift ? '<tr><td>Подарункова упаковка</td><td>Преміум</td><td>' + quantity + ' шт</td><td>' + (quantity * GIFT_WRAP_PRICE * quantity) + ' грн</td></tr>' : '') + '<tr class="total"><td colspan="3" style="text-align:right">РАЗОМ:</td><td class="total-val">' + total + ' грн</td></tr></tbody></table>' + (uploadedImages.filter(Boolean).length > 0 ? '<div class="logos"><b style="width:100%;font-size:12px;margin-bottom:4px">Ваші логотипи:</b>' + imagesHTML + '</div>' : '') + '<div style="font-size:12px;color:#666;margin-top:14px"><p><b>Виготовлення:</b> 3-5 робочих днів</p><p><b>Доставка:</b> по всій Україні</p></div><div class="foot">Light Logo — 2294598@gmail.com | +38 093 123 45 67<br>Пропозиція дійсна 7 днів</div></body></html>');
+  w.document.close();
+  setTimeout(function() { w.print(); }, 400);
+}
+
+// Close mobile nav
+document.querySelectorAll('.nav a').forEach(function(l) {
+  l.addEventListener('click', function() { document.getElementById('mainNav').classList.remove('open'); });
+});
 </script>
 </body>
 </html>
