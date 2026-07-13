@@ -82,14 +82,6 @@ img{max-width:100%;display:block}
 .gift-toggle input{accent-color:#FFD700;width:15px;height:15px}
 .gift-toggle .price{color:#FFD700;font-weight:600}
 .extras-block{margin-top:14px;padding:12px;background:#0d0d0d;border-radius:8px;border:1px solid #151515}
-/* Toggle button for gift packaging */
-.gift-toggle-wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;background:#0d0d0d;border-radius:8px;border:1px solid #151515;margin-top:10px}
-.gift-toggle-wrap .gt-label{font-size:12px;color:#bbb;display:flex;flex-direction:column;gap:2px}
-.gift-toggle-wrap .gt-label .gt-price{color:#FFD700;font-weight:600;font-size:11px}
-.gift-toggle-btn{position:relative;width:46px;height:24px;border-radius:12px;background:#333;border:none;cursor:pointer;transition:background .2s;flex-shrink:0;padding:0}
-.gift-toggle-btn.on{background:#FFD700}
-.gift-toggle-btn::after{content:"";position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}
-.gift-toggle-btn.on::after{transform:translateX(22px);background:#000}
 .qty-control{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .qty-btn{width:34px;height:34px;border-radius:50%;background:#FFD700;color:#000;border:none;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;transition:opacity .2s}
 .qty-btn:hover{opacity:.8}
@@ -346,6 +338,14 @@ img{max-width:100%;display:block}
         </div>
         <div class="garland-note">Завантажте логотипи — вони з'являться на підвіськах</div>
       </div>
+
+      <div class="step-title" style="margin-top:16px">Додаткові опції</div>
+      <div class="extras-block">
+        <label class="gift-toggle" style="margin:0">
+          <input type="checkbox" id="giftCheck" checked onchange="updateCalc()">
+          <span>Подарункова упаковка <span class="price">(+50 грн)</span></span>
+        </label>
+      </div>
     </div>
 
     <!-- Calculator -->
@@ -361,16 +361,6 @@ img{max-width:100%;display:block}
 
       <div class="calc-line"><span>Комплектація</span><span class="val">Гірлянда 2 м · 10 підвісок</span></div>
       <div class="calc-line"><span>Термін виробництва</span><span class="val">3-5 робочих днів</span></div>
-
-      <!-- Gift packaging toggle (on/off button) -->
-      <div class="gift-toggle-wrap">
-        <div class="gt-label">
-          <span>Подарункова упаковка з вашим логотипом</span>
-          <span class="gt-price">+50 грн × <span id="calcQty3">1</span> шт</span>
-        </div>
-        <button type="button" id="giftToggleBtn" class="gift-toggle-btn on" onclick="toggleGift()" aria-label="Упаковка вкл/викл"></button>
-        <input type="checkbox" id="giftCheck" checked style="display:none">
-      </div>
 
       <div style="margin-top:14px">
         <div style="font-size:12px;color:#888;margin-bottom:6px;font-weight:600">Розрахунок вартості</div>
@@ -394,14 +384,14 @@ img{max-width:100%;display:block}
       </button>
       <p class="calc-note">Без передоплати. Оплата при отриманні.</p>
 
-      <!-- Packaging preview (9.png) — shown only when toggle is ON -->
+      <!-- Packaging preview (9.png) — shown only when checkbox is checked -->
       <div class="packaging-preview" id="packagingPreview">
         <div class="pp-label">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7"/></svg>
           Ваша подарункова упаковка
         </div>
-        <img src="9.png" alt="Подарункова упаковка гірлянди з вашим логотипом">
-        <div class="pp-note">Подарункова коробка з вашим логотипом · +50 грн</div>
+        <img src="9.png" alt="Подарункова упаковка гірлянди">
+        <div class="pp-note">Подарункова коробка з українським орнаментом · +50 грн</div>
       </div>
     </div>
   </div>
@@ -581,15 +571,6 @@ function changeQty(delta) {
   document.getElementById('qtyVal').textContent = quantity;
   document.getElementById('calcQty1').textContent = quantity;
   document.getElementById('calcQty2').textContent = quantity;
-  document.getElementById('calcQty3').textContent = quantity;
-  updateCalc();
-}
-
-function toggleGift() {
-  const btn = document.getElementById('giftToggleBtn');
-  const cb = document.getElementById('giftCheck');
-  cb.checked = !cb.checked;
-  btn.classList.toggle('on', cb.checked);
   updateCalc();
 }
 
@@ -697,10 +678,10 @@ function generatePDF() {
   const dateStr = new Date().toLocaleDateString('uk-UA', { day: '2-digit', month: '2-digit', year: 'numeric' });
   const logosCount = uploadedImages.filter(Boolean).length;
   const imagesHTML = uploadedImages.filter(Boolean).map(function(src) {
-    return '<img src="' + src + '" style="width:60px;height:60px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid #888;-webkit-print-color-adjust:exact;print-color-adjust:exact">';
+    return '<img src="' + src + '" style="width:70px;height:70px;object-fit:contain;border-radius:50%;background:#555;border:1px solid #888;-webkit-print-color-adjust:exact;print-color-adjust:exact">';
   }).join('');
   const w = window.open('', '_blank');
-  w.document.write('<!DOCTYPE html><html lang="uk"><head><meta charset="UTF-8"><title>КП - Light Logo</title><style>body{font-family:Arial,sans-serif;max-width:760px;margin:40px auto;padding:20px;color:#222;line-height:1.6}.hdr{display:flex;justify-content:space-between;border-bottom:3px solid #B8860B;padding-bottom:14px;margin-bottom:20px}.logo{font-size:22px;font-weight:700;color:#B8860B}table{width:100%;border-collapse:collapse;margin:16px 0}th{background:#f5f5f5;text-align:left;padding:8px 10px;font-size:12px}td{padding:8px 10px;border-bottom:1px solid #eee;font-size:12px}.total{font-weight:700;font-size:16px;border-top:2px solid #333}.total td{padding:12px 10px}.total-val{color:#B8860B;font-size:18px}.logos{margin:16px 0;padding:18px;background:#222;border-radius:8px;-webkit-print-color-adjust:exact;print-color-adjust:exact}.logos-title{font-size:12px;color:#fff;margin-bottom:12px;font-weight:600}.logos-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;min-height:340px}.logos-grid img{width:100%;height:auto;max-width:80px;aspect-ratio:1;object-fit:contain;border-radius:50%;background:#fff;border:1px solid #888;-webkit-print-color-adjust:exact;print-color-adjust:exact;margin:0 auto;display:block}.logos-num{position:relative;text-align:center}.logos-num .n{position:absolute;top:-6px;left:50%;transform:translateX(-50%);background:#FFD700;color:#000;font-size:10px;font-weight:700;width:18px;height:18px;line-height:18px;border-radius:50%;z-index:2}.foot{margin-top:24px;padding-top:12px;border-top:1px solid #ddd;font-size:10px;color:#999;text-align:center}@media print{body{margin:20px}}</style></head><body><div class="hdr"><div class="logo">LIGHT LOGO</div><div style="color:#888;font-size:12px">' + dateStr + '</div></div><h1 style="font-size:20px">Комерційна пропозиція</h1><p style="color:#888;font-size:13px;margin-bottom:16px">Гірлянда 2 м з 10 підвіськами з вашим логотипом</p><table><thead><tr><th>Позиція</th><th>Деталі</th><th>Кількість</th><th>Ціна</th></tr></thead><tbody><tr><td>Гірлянда з логотипами</td><td>2 м, 10 акрилових підвісок + LED + батарейки</td><td>' + quantity + ' шт</td><td>' + garlandTotal + ' грн</td></tr>' + (gift ? '<tr><td>Подарункова упаковка</td><td>Коробка з вашим логотипом</td><td>' + quantity + ' шт</td><td>' + packagingTotal + ' грн</td></tr>' : '') + '<tr class="total"><td colspan="3" style="text-align:right">РАЗОМ:</td><td class="total-val">' + total + ' грн</td></tr></tbody></table>' + (logosCount > 0 ? '<div class="logos"><div class="logos-title">Ваші логотипи (' + logosCount + ' з 10):</div><div class="logos-grid">' + uploadedImages.map(function(src, i) { return src ? '<div class="logos-num"><span class="n">' + (i+1) + '</span><img src="' + src + '"></div>' : ''; }).join('') + '</div></div>' : '') + '<div style="font-size:12px;color:#666;margin-top:14px"><p><b>Виготовлення:</b> 3-5 робочих днів</p><p><b>Оплата:</b> при отриманні, без передоплати</p></div><div class="foot">Light Logo — 2294598@gmail.com | +38 093 123 45 67<br>Пропозиція дійсна 7 днів</div></body></html>');
+  w.document.write('<!DOCTYPE html><html lang="uk"><head><meta charset="UTF-8"><title>КП - Light Logo</title><style>body{font-family:Arial,sans-serif;max-width:680px;margin:40px auto;padding:20px;color:#222;line-height:1.6}.hdr{display:flex;justify-content:space-between;border-bottom:3px solid #B8860B;padding-bottom:14px;margin-bottom:20px}.logo{font-size:22px;font-weight:700;color:#B8860B}table{width:100%;border-collapse:collapse;margin:16px 0}th{background:#f5f5f5;text-align:left;padding:8px 10px;font-size:12px}td{padding:8px 10px;border-bottom:1px solid #eee;font-size:12px}.total{font-weight:700;font-size:16px;border-top:2px solid #333}.total td{padding:12px 10px}.total-val{color:#B8860B;font-size:18px}.logos{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0;padding:14px;background:#222;border-radius:8px;-webkit-print-color-adjust:exact;print-color-adjust:exact}.foot{margin-top:24px;padding-top:12px;border-top:1px solid #ddd;font-size:10px;color:#999;text-align:center}@media print{body{margin:20px}}</style></head><body><div class="hdr"><div class="logo">LIGHT LOGO</div><div style="color:#888;font-size:12px">' + dateStr + '</div></div><h1 style="font-size:20px">Комерційна пропозиція</h1><p style="color:#888;font-size:13px;margin-bottom:16px">Гірлянда 2 м з 10 підвіськами з вашим логотипом</p><table><thead><tr><th>Позиція</th><th>Деталі</th><th>Кількість</th><th>Ціна</th></tr></thead><tbody><tr><td>Гірлянда з логотипами</td><td>2 м, 10 акрилових підвісок + LED + батарейки</td><td>' + quantity + ' шт</td><td>' + garlandTotal + ' грн</td></tr>' + (gift ? '<tr><td>Подарункова упаковка</td><td>Коробка з українським орнаментом</td><td>' + quantity + ' шт</td><td>' + packagingTotal + ' грн</td></tr>' : '') + '<tr class="total"><td colspan="3" style="text-align:right">РАЗОМ:</td><td class="total-val">' + total + ' грн</td></tr></tbody></table>' + (logosCount > 0 ? '<div class="logos"><b style="width:100%;font-size:12px;margin-bottom:4px;color:#fff">Ваші логотипи (' + logosCount + ' з 10):</b>' + imagesHTML + '</div>' : '') + '<div style="font-size:12px;color:#666;margin-top:14px"><p><b>Виготовлення:</b> 3-5 робочих днів</p><p><b>Оплата:</b> при отриманні, без передоплати</p></div><div class="foot">Light Logo — 2294598@gmail.com | +38 093 123 45 67<br>Пропозиція дійсна 7 днів</div></body></html>');
   w.document.close();
   setTimeout(function() { w.print(); }, 400);
 }
