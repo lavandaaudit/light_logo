@@ -87,6 +87,9 @@ img{max-width:100%;display:block}
 .btn-secondary:hover{background:rgba(255,215,0,.1)}
 .btn-secondary svg{width:14px;height:14px}
 .calc-note{font-size:10px;color:#555;margin-top:10px;text-align:center}
+.btn-pdf{width:100%;margin-top:8px;background:transparent;border:1px solid #FFD700;color:#FFD700;font-weight:500;font-size:13px;padding:10px 20px;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s}
+.btn-pdf:hover{background:rgba(255,215,0,.08)}
+.btn-pdf svg{width:15px;height:15px}
 
 /* Packaging preview (9.png) — appears only when checkbox is checked */
 .packaging-preview{margin-top:14px;padding:14px;background:#0d0d0d;border:1px solid #FFD700;border-radius:10px}
@@ -243,7 +246,7 @@ img{max-width:100%;display:block}
     </div>
   </div>
   <div class="hero-img">
-    <img src="7.png" alt="Гірлянда 2 метри, 10 підвісок">
+    <img src="garland-collage.png" alt="Гірлянда з логотипами — приклади робіт">
   </div>
 </section>
 
@@ -347,13 +350,11 @@ img{max-width:100%;display:block}
 
       <div class="calc-line"><span>Комплектація</span><span class="val">Гірлянда 2 м · 10 підвісок</span></div>
       <div class="calc-line"><span>Термін виробництва</span><span class="val">3-5 робочих днів</span></div>
-      <div class="calc-line"><span>Доставка</span><span class="val" style="color:#4ade80">Безкоштовно по Україні</span></div>
 
       <div style="margin-top:14px">
         <div style="font-size:12px;color:#888;margin-bottom:6px;font-weight:600">Розрахунок вартості</div>
         <div class="calc-line"><span>Гірлянда (2 м, 10 підвісок)</span><span class="val">350 грн</span></div>
         <div class="calc-line"><span>Подарункова упаковка</span><span class="val" id="giftPrice">50 грн</span></div>
-        <div class="calc-line"><span>Доставка</span><span class="val" style="color:#4ade80">Безкоштовно</span></div>
       </div>
 
       <div class="calc-total" id="calcTotal"><span>РАЗОМ</span><br>400 грн</div>
@@ -365,6 +366,10 @@ img{max-width:100%;display:block}
       <button class="btn-secondary" onclick="openModal('individual')">
         Замовити індивідуальний розмір
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg>
+      </button>
+      <button class="btn-pdf" onclick="generatePDF()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+        Завантажити КП (PDF)
       </button>
       <p class="calc-note">Без передоплати. Оплата при отриманні.</p>
 
@@ -396,7 +401,7 @@ img{max-width:100%;display:block}
       </div>
     </div>
     <div class="use-right">
-      <h2>Приклади комплектів <span class="see-all">Дивитись всі →</span></h2>
+      <h2>Приклади робіт</h2>
       <div class="examples-grid">
         <div class="example-card"><img src="garland-product-3.png" alt="IT компанія"><div class="tag">IT компанія</div></div>
         <div class="example-card"><img src="garland-product-4.png" alt="Ресторан"><div class="tag">Ресторан</div></div>
@@ -615,7 +620,6 @@ function updateModalSummary() {
       '<div class="ms-line"><span>Комплектація</span><span class="v">Гірлянда 2 м · 10 підвісок</span></div>' +
       '<div class="ms-line"><span>Гірлянда</span><span class="v">' + GARLAND_PRICE + ' грн</span></div>' +
       (gift ? '<div class="ms-line"><span>Подарункова упаковка</span><span class="v">' + PACKAGING_PRICE + ' грн</span></div>' : '') +
-      '<div class="ms-line"><span>Доставка</span><span class="v" style="color:#4ade80">Безкоштовно</span></div>' +
       '<div class="ms-line total"><span>Разом</span><span class="v">' + total + ' грн</span></div>';
   } else {
     const size = document.getElementById('individualSize')?.value || '—';
@@ -638,6 +642,21 @@ document.addEventListener('input', function(e) {
 document.getElementById('orderModal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
+
+/* ─────────── Generate PDF (КП) ─────────── */
+function generatePDF() {
+  const gift = document.getElementById('giftCheck').checked;
+  const total = GARLAND_PRICE + (gift ? PACKAGING_PRICE : 0);
+  const dateStr = new Date().toLocaleDateString('uk-UA', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  const logosCount = uploadedImages.filter(Boolean).length;
+  const imagesHTML = uploadedImages.filter(Boolean).map(function(src) {
+    return '<img src="' + src + '" style="width:70px;height:70px;object-fit:contain;border-radius:50%;background:#555;border:1px solid #888;-webkit-print-color-adjust:exact;print-color-adjust:exact">';
+  }).join('');
+  const w = window.open('', '_blank');
+  w.document.write('<!DOCTYPE html><html lang="uk"><head><meta charset="UTF-8"><title>КП - Light Logo</title><style>body{font-family:Arial,sans-serif;max-width:680px;margin:40px auto;padding:20px;color:#222;line-height:1.6}.hdr{display:flex;justify-content:space-between;border-bottom:3px solid #B8860B;padding-bottom:14px;margin-bottom:20px}.logo{font-size:22px;font-weight:700;color:#B8860B}table{width:100%;border-collapse:collapse;margin:16px 0}th{background:#f5f5f5;text-align:left;padding:8px 10px;font-size:12px}td{padding:8px 10px;border-bottom:1px solid #eee;font-size:12px}.total{font-weight:700;font-size:16px;border-top:2px solid #333}.total td{padding:12px 10px}.total-val{color:#B8860B;font-size:18px}.logos{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0;padding:14px;background:#222;border-radius:8px;-webkit-print-color-adjust:exact;print-color-adjust:exact}.foot{margin-top:24px;padding-top:12px;border-top:1px solid #ddd;font-size:10px;color:#999;text-align:center}@media print{body{margin:20px}}</style></head><body><div class="hdr"><div class="logo">LIGHT LOGO</div><div style="color:#888;font-size:12px">' + dateStr + '</div></div><h1 style="font-size:20px">Комерційна пропозиція</h1><p style="color:#888;font-size:13px;margin-bottom:16px">Гірлянда 2 м з 10 підвіськами з вашим логотипом</p><table><thead><tr><th>Позиція</th><th>Деталі</th><th>Кількість</th><th>Ціна</th></tr></thead><tbody><tr><td>Гірлянда з логотипами</td><td>2 м, 10 акрилових підвісок + LED + батарейки</td><td>1 шт</td><td>' + GARLAND_PRICE + ' грн</td></tr>' + (gift ? '<tr><td>Подарункова упаковка</td><td>Коробка з українським орнаментом</td><td>1 шт</td><td>' + PACKAGING_PRICE + ' грн</td></tr>' : '') + '<tr class="total"><td colspan="3" style="text-align:right">РАЗОМ:</td><td class="total-val">' + total + ' грн</td></tr></tbody></table>' + (logosCount > 0 ? '<div class="logos"><b style="width:100%;font-size:12px;margin-bottom:4px;color:#fff">Ваші логотипи (' + logosCount + ' з 10):</b>' + imagesHTML + '</div>' : '') + '<div style="font-size:12px;color:#666;margin-top:14px"><p><b>Виготовлення:</b> 3-5 робочих днів</p><p><b>Оплата:</b> при отриманні, без передоплати</p></div><div class="foot">Light Logo — 2294598@gmail.com | +38 093 123 45 67<br>Пропозиція дійсна 7 днів</div></body></html>');
+  w.document.close();
+  setTimeout(function() { w.print(); }, 400);
+}
 
 /* ─────────── Submit order via formsubmit.co ─────────── */
 async function submitOrder(e) {
