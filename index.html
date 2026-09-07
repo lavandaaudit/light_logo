@@ -148,8 +148,9 @@ img{max-width:100%;display:block}
 .works-gallery{max-width:1200px;margin:0 auto;padding:10px 24px 50px}
 .works-gallery h2{font-size:22px;font-weight:700;margin-bottom:20px}
 .works-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.works-card{border-radius:10px;overflow:hidden;border:1px solid #1a1a1a;position:relative;background:#0d0d0d}
-.works-card img{width:100%;height:100%;object-fit:cover;display:block;min-height:260px}
+.works-card{border-radius:10px;overflow:hidden;border:1px solid #1a1a1a;position:relative;background:#0d0d0d;aspect-ratio:16/9}
+.works-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease}
+.works-card:hover img{transform:scale(1.03)}
 
 /* CTA */
 .cta{max-width:1200px;margin:0 auto;padding:30px 24px 50px;text-align:center}
@@ -434,16 +435,10 @@ img{max-width:100%;display:block}
 <section class="works-gallery" id="works">
   <h2>Приклади робіт</h2>
   <div class="works-grid" id="worksGrid">
-    <div class="works-card"><img src="1.png" alt="Приклад роботи 1" onerror="this.closest('.works-card').style.display='none'"></div>
-    <div class="works-card"><img src="2.png" alt="Приклад роботи 2" onerror="this.closest('.works-card').style.display='none'"></div>
-    <div class="works-card"><img src="3.png" alt="Приклад роботи 3" onerror="this.closest('.works-card').style.display='none'"></div>
-    <div class="works-card"><img src="4.png" alt="Приклад роботи 4" onerror="this.closest('.works-card').style.display='none'"></div>
-    <div class="works-card"><img src="5.png" alt="Приклад роботи 5" onerror="this.closest('.works-card').style.display='none'"></div>
-    <div class="works-card"><img src="6.png" alt="Приклад роботи 6" onerror="this.closest('.works-card').style.display='none'"></div>
-    <div class="works-card"><img src="7.png" alt="Приклад роботи 7" onerror="this.closest('.works-card').style.display='none'"></div>
-    <div class="works-card"><img src="8.png" alt="Приклад роботи 8" onerror="this.closest('.works-card').style.display='none'"></div>
-    <div class="works-card"><img src="9.png" alt="Приклад роботи 9" onerror="this.closest('.works-card').style.display='none'"></div>
-    <div class="works-card"><img src="10.png" alt="Приклад роботи 10" onerror="this.closest('.works-card').style.display='none'"></div>
+    <div class="works-card"><img src="public/1.png" alt="Приклад роботи 1" loading="lazy"></div>
+    <div class="works-card"><img src="public/2.png" alt="Приклад роботи 2" loading="lazy"></div>
+    <div class="works-card"><img src="public/3.png" alt="Приклад роботи 3" loading="lazy"></div>
+    <div class="works-card"><img src="public/4.png" alt="Приклад роботи 4" loading="lazy"></div>
   </div>
 </section>
 
