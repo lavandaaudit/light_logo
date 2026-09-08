@@ -251,10 +251,10 @@ img{max-width:100%;display:block}
 <!-- HERO -->
 <section class="hero" id="about">
   <div>
-    <div class="hero-label">Гірлянда 2 м · 10 підвісок · 400 грн комплект</div>
+    <div class="hero-label">Гірлянда 2 м · 10 підвісок · 500 грн комплект</div>
     <h1>СВІТЛО<br>ВАШОГО <span style="color:#FFD700">БРЕНДУ</span></h1>
     <p class="hero-sub">Готовий комплект: гірлянда 2 метри з 10 підвіськами з вашим логотипом + подарункова упаковка. Виробимо за 3-5 днів.</p>
-    <div class="hero-price">400 грн / комплект</div>
+    <div class="hero-price">500 грн / комплект</div>
     <div class="hero-btns">
       <button class="btn-primary" onclick="document.getElementById('constructor').scrollIntoView({behavior:'smooth'})">
         Створити свою гірлянду
@@ -383,11 +383,11 @@ img{max-width:100%;display:block}
 
       <div style="margin-top:14px">
         <div style="font-size:12px;color:#888;margin-bottom:6px;font-weight:600">Розрахунок вартості</div>
-        <div class="calc-line"><span>Гірлянда (2 м, 10 підвісок) × <span id="calcQty1">1</span> шт</span><span class="val" id="garlandLine">350 грн</span></div>
+        <div class="calc-line"><span>Гірлянда (2 м, 10 підвісок) × <span id="calcQty1">1</span> шт</span><span class="val" id="garlandLine">450 грн</span></div>
         <div class="calc-line"><span>Подарункова упаковка × <span id="calcQty2">1</span> шт</span><span class="val" id="giftPrice">50 грн</span></div>
       </div>
 
-      <div class="calc-total" id="calcTotal"><span>РАЗОМ</span><br>400 грн</div>
+      <div class="calc-total" id="calcTotal"><span>РАЗОМ</span><br>500 грн</div>
 
       <button class="btn-primary btn-order-big" onclick="openModal('standard')">
         Замовити комплект
@@ -463,7 +463,7 @@ img{max-width:100%;display:block}
   </div>
   <div class="faq-item" onclick="toggleFaq(this)">
     <div class="faq-q"><span>Скільки коштує комплект?</span><span class="icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">Гірлянда 2 м з 10 підвіськами — 350 грн. Подарункова упаковка — 50 грн. Разом комплект — 400 грн. Без передоплати, оплата при отриманні.</div></div>
+    <div class="faq-a"><div class="faq-a-inner">Гірлянда 2 м з 10 підвіськами — 450 грн. Подарункова упаковка — 50 грн. Разом комплект — 500 грн. Без передоплати, оплата при отриманні.</div></div>
   </div>
 </section>
 
@@ -501,7 +501,7 @@ img{max-width:100%;display:block}
 <div class="modal-overlay" id="orderModal">
   <div class="modal">
     <h3 id="modalTitle">Оформлення замовлення комплекту</h3>
-    <div class="modal-price" id="modalPrice">400 грн</div>
+    <div class="modal-price" id="modalPrice">500 грн</div>
 
     <form id="orderForm" onsubmit="submitOrder(event)">
       <!-- Individual-only fields -->
@@ -535,7 +535,7 @@ img{max-width:100%;display:block}
 <script>
 /* ─────────── Constants ─────────── */
 const PENDANT_COUNT = 10;
-const GARLAND_PRICE = 350;
+const GARLAND_PRICE = 450;
 const PACKAGING_PRICE = 50;
 const uploadedImages = new Array(PENDANT_COUNT).fill(null);
 let currentMode = 'standard'; // 'standard' | 'individual'
