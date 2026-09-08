@@ -798,7 +798,7 @@ updateCalc();
     .then(function(d) {
       if (d && typeof d.value === 'number') {
         if (isNew) sessionStorage.setItem('visited_ll', '1');
-        el.innerHTML = 'Переглядів: <span style="color:#666;font-weight:500">' + d.value + '</span>';
+        el.innerHTML = '№: <span style="color:#666;font-weight:500">' + d.value + '</span>';
       }
     })
     .catch(function() {});
